@@ -25,4 +25,9 @@ living_room:
     - light.hue_color_lamp_1
     - light.hue_color_lamp_2
     - light.hue_color_lamp_3
+    - media_player.sony_bravia_tv
+    - media_player.xbr55x850c
+loft:
+  entities:
+    - media_player.chromecast8579
     
