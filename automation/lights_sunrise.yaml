@@ -5,7 +5,7 @@
     - platform: sun
       event: sunrise
   condition:
-    condition: and
+    condition: or
     conditions:
       - condition: state
         entity_id: device_tracker.briansiphone
