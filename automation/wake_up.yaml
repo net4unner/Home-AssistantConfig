@@ -1,7 +1,7 @@
-- alias: "Bedtime"
+- alias: "WakeUp"
   trigger:
     - platform: time
-      after: "21:30:00"
+      after: "06:00:00"
   condition:
     condition: and
     conditions:
@@ -12,5 +12,5 @@
           - wed
           - thu
   action:
-    - service: light.turn_off
+    - service: light.turn_on
       entity_id: group.all_lights
