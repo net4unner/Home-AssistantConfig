@@ -1,0 +1,23 @@
+- alias: turn_on_light_sun_rises
+  initial_state: True
+  hide_entity: False
+  trigger:
+    - platform: sun
+      event: sunrise
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: device_tracker.briansiphone
+        state: 'not_home'
+      - condition: state
+        entity_id: device_tracker.sheenasiphone
+        state: 'not_home'
+
+  action:
+    - service: light.turn_on
+      entity_id: group.bedroom
+    - service: light.turn_on
+      entity_id: group.living_room
+    - service: light.turn_on
+      entity_id: group.garage
