@@ -80,7 +80,6 @@ alarm_control_panel:
   username: !secret alarm_user 
   password: !secret alarm_pw
   
-zone: !include zones.yaml
   
 ################################################
 ## Component Includes (Merge List)
