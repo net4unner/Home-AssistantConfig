@@ -1,0 +1,10 @@
+- alias: arm_away_when_brian_gone
+  trigger:
+    - platform: state
+      entity_id: device_tracker.briansiphone
+      from: 'home'
+      to: 'not_home'
+  
+  action:
+    - service: alarm_control_panel.alarm_arm_away
+      
