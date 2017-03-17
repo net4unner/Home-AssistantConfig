@@ -1,7 +1,7 @@
 - alias: arm_away_when_brian_gone
   trigger:
     - platform: state
-      entity_id: device_tracker.briansiphone
+      entity_id: device_tracker.biphone_brian
       from: 'home'
       to: 'not_home'
   condition:

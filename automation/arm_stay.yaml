@@ -1,0 +1,18 @@
+- alias: arm_stay
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.alarmcom
+      state: "disarmed"
+      for:
+         minutes: 10
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: device_tracker.sheenasiphone
+        state: "home"
+      - condition: state
+        entity_id: device_tracker.biphone_brian
+        state: "home"
+  action:
+    - service: alarm_control_panel.alarm_arm_home

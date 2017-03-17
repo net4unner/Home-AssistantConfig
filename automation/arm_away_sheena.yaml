@@ -8,8 +8,7 @@
     condition: and
     conditions:
       - condition: state
-        entity_id: device_tracker.briansiphone
+        entity_id: device_tracker.biphone_brian
         state: 'not_home'
-
   action:
     - service: alarm_control_panel.alarm_arm_away
