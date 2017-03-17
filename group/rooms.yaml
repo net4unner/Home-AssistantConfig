@@ -6,3 +6,23 @@ garage:
   entities:
     - light.garage_left
     - light.garage_right
+    
+bedroom:
+  entities:
+    - light.brian
+    - light.sheena
+    
+kitchen:
+  entities:
+    - light.sink
+    
+office:
+  entities:
+    - light.office
+    
+living_room:
+  entities:
+    - light.hue_color_lamp1
+    - light.hue_color_lamp2
+    - light.hue_color_lamp3
+    
