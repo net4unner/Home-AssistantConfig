@@ -1,0 +1,10 @@
+- platform: owntracks
+  waypoints: True
+- platform: asuswrt
+  host: 192.168.1.1
+  username: admin
+  password: !secret wrt_pw
+  interval_seconds: 10
+  consider_home: 180
+  track_new_devices: yes
+  protocol: telnet  
