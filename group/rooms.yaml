@@ -22,7 +22,7 @@ office:
     
 living_room:
   entities:
-    - light.hue_color_lamp1
-    - light.hue_color_lamp2
-    - light.hue_color_lamp3
+    - light.hue_color_lamp_1
+    - light.hue_color_lamp_2
+    - light.hue_color_lamp_3
     
