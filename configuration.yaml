@@ -33,6 +33,7 @@ updater:
 # Discover some devices automatically
 discovery:
 
+
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
 
@@ -81,6 +82,13 @@ alarm_control_panel:
   
 zone: !include zones.yaml
   
+################################################
+## Component Includes (Merge List)
+################################################
 
-  
+automation: !include_dir_merge_list automation
+light: !include_dir_merge_list light
+zone: !include_dir_merge_list zone
+
+group: !include_dir_merge_named group  
   
