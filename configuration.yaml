@@ -66,9 +66,13 @@ tts:
 
 
 mqtt:
-  embedded:
-  broker: localhost
+  broker: !secret mqtt_broker
+  port: 12464
+  client_id: home-assistant-1
+  keepalive: 60
+  username: !secret mqtt_user
   password: !secret mqtt_pw
+
 
 
 device_tracker: !include device_tracker.yaml
