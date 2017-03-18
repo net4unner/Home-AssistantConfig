@@ -6,7 +6,7 @@
       for:
          minutes: 10
   condition:
-    condition: or
+    condition: and
     conditions:
       - condition: state
         entity_id: device_tracker.sheenasiphone

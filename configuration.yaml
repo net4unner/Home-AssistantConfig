@@ -33,6 +33,11 @@ updater:
 # Discover some devices automatically
 discovery:
 
+media_player:
+  - platform: braviatv
+    host: !secret brav_host
+  - platform: kodi
+    host: !secret kodi_host
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
@@ -59,7 +64,15 @@ sensor:
       - visibility
       - humidity
       - temperature
-
+  - platform: speedtest
+    minute:
+      - 0
+      - 30
+    monitored_conditions:
+      - ping
+      - download
+      - upload
+    server_id: "544"
 # Text to speech
 tts:
   platform: google
@@ -76,7 +89,6 @@ mqtt:
 
 
 device_tracker: !include device_tracker.yaml
-  
 
 
 alarm_control_panel:

@@ -8,7 +8,7 @@
     condition: and
     conditions:
       - condition: state
-        entity_id: device_tracker.sheenasiphone
+        entity_id: device_tracker.siphone_sheena
         state: 'not_home'
   
   action:

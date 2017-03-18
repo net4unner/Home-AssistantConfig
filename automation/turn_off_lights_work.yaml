@@ -1,7 +1,7 @@
-- alias: "WakeUp"
+- alias: "turn_off_lights_work"
   trigger:
     - platform: time
-      after: "06:00:00"
+      after: "07:00:00"
   condition:
     condition: and
     conditions:
@@ -12,10 +12,6 @@
           - wed
           - thu
           - fri
-          - sat
-          - sun
   action:
-    - service: light.turn_on
+    - service: light.turn_off
       entity_id: group.all_lights
-      data:
-        brightness: 70
