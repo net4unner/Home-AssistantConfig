@@ -4,12 +4,12 @@
       entity_id: alarm_control_panel.alarmcom
       state: "disarmed"
       for:
-         minutes: 10
+         minutes: 60
   condition:
     condition: and
     conditions:
       - condition: state
-        entity_id: device_tracker.sheenasiphone
+        entity_id: device_tracker.siphone_sheena
         state: "home"
       - condition: state
         entity_id: device_tracker.biphone_brian

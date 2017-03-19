@@ -4,6 +4,9 @@
       entity_id: device_tracker.siphone_sheena
       from: 'home'
       to: 'not_home'
+    - platform: state
+      entity_id: alarm_control_panel.alarmcom
+      state: 'disarmed'
   condition:
     condition: and
     conditions:

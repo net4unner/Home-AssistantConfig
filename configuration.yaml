@@ -51,6 +51,7 @@ logbook:
 # Track the sun
 sun:
 
+
 # Weather
 sensor:
   - platform: yweather

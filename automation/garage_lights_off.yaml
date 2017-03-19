@@ -1,0 +1,10 @@
+- alias: "turn_off_garage_lights"
+  trigger:
+    - platform: time
+      after: "07:00:00"
+    - platform: state
+      entity_id: group.garage
+      state: 'on'
+  action:
+    - service: light.turn_off
+      entity_id: group.garage
