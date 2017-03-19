@@ -1,0 +1,15 @@
+- alias: "Bedtime"
+  trigger:
+    - platform: time
+      after: "22:30:00"
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        weekday:
+          - fri
+          - sat
+
+  action:
+    - service: light.turn_off
+      entity_id: group.all_lights
