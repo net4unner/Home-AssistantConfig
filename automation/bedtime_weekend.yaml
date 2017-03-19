@@ -1,4 +1,4 @@
-- alias: "Bedtime"
+- alias: "Bedtime_Weekend"
   trigger:
     - platform: time
       after: "22:30:00"
