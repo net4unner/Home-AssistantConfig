@@ -74,10 +74,22 @@ sensor:
       - download
       - upload
     server_id: "544"
+
+  - platform: ring
+    username: !secret ring_user
+    password: !secret ring_pw
+    monitored_conditions:
+      - battery
+      - last_activity
+      - volume
 # Text to speech
 tts:
   platform: google
 
+notify:
+  - platform: pushover
+    api_key: !secret pushover_api_key
+    user_key: !secret pushover_user_key
 
 mqtt:
   broker: !secret mqtt_broker

@@ -4,15 +4,16 @@
       entity_id: alarm_control_panel.alarmcom
       state: "disarmed"
       for:
-         minutes: 60
+         minutes: 15
   condition:
     condition: and
     conditions:
       - condition: state
-        entity_id: device_tracker.siphone_sheena
-        state: "home"
-      - condition: state
-        entity_id: device_tracker.biphone_brian
+        entity_id: group.family
         state: "home"
   action:
     - service: alarm_control_panel.alarm_arm_home
+    - service: notify.notify
+      data:
+        message: "System has been armed to stay"
+        title: "Arm Stay"

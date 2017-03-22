@@ -1,0 +1,4 @@
+family:
+  entities:
+    - device_tracker.briansiphone
+    - device_tracker.sheenasiphone

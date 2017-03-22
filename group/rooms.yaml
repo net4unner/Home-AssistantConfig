@@ -6,28 +6,27 @@ garage:
   entities:
     - light.garage_left
     - light.garage_right
-    
 bedroom:
   entities:
     - light.brian
     - light.sheena
-    
 kitchen:
   entities:
     - light.sink
-    
 office:
   entities:
-    - light.office
-    
+    - light.office1
+    - light.office2
 living_room:
   entities:
     - light.hue_color_lamp_1
     - light.hue_color_lamp_2
     - light.hue_color_lamp_3
-    - media_player.sony_bravia_tv
-    - media_player.xbr55x850c
 loft:
   entities:
-    - media_player.chromecast8579
+    - light.loft1
+    - light.loft2
+
+
+
     

@@ -9,6 +9,14 @@
       - condition: state
         entity_id: group.all_lights
         state: 'off'
+      - condition: time
+        after: "18:00:00"
+        before: "21:00:00"
+
   action:
     - service: light.turn_on
       entity_id: group.all_lights
+    - service: notify.notify
+      data:
+        message: "Lights have been turned on due to sunset"
+        title: "Sunset trigger fired"
