@@ -4,7 +4,7 @@
       entity_id: alarm_control_panel.alarmcom
       state: "disarmed"
       for:
-         minutes: 15
+         minutes: 30
   condition:
     condition: and
     conditions:

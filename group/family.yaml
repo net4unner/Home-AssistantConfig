@@ -2,3 +2,4 @@ family:
   entities:
     - device_tracker.briansiphone
     - device_tracker.sheenasiphone
+    - device_tracker.briansapple_watch
