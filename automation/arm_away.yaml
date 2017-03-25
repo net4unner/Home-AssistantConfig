@@ -4,20 +4,12 @@
       entity_id: device_tracker.sheenasiphone, device_tracker.briansiphone
       from: 'home'
       to: 'not_home'
-    - platform: state
-      entity_id: device_tracker.sheenasiphone
-      from: 'not_home'
-      to: 'sheena_work'
-    - platform: state
-      entity_id: alarm_control_panel.alarmcom
-      state: 'disarmed'
-    - platform: state
-      entity_id: device_tracker.briansiphone
-      from: 'not_home'
-      to: 'brian_work'
   condition:
     condition: and
     conditions:
+      - condition: state
+        entity_id: alarm_control_panel.alarmcom
+        state: 'disarmed'
       - condition: state
         entity_id: device_tracker.briansiphone
         state: 'not_home'

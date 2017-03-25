@@ -1,0 +1,15 @@
+- alias: disarm_arrive_home
+  trigger:
+    - platform: state
+      entity_id: device_tracker.sheenasiphone, device_tracker.briansiphone
+      from: 'not_home'
+      to: 'home'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: alarm_control_panel.alarmcom
+        state: 'armed'
+
+  action:
+    - service: alarm_control_panel.alarm_arm_away
