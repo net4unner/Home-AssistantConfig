@@ -1,0 +1,11 @@
+- alias: sheena_arrived_to_work
+  trigger:
+    - platform: state
+      entity_id: device_tracker.sheenasiphone
+      from: 'not_home'
+      to: 'Sheena Work'
+  action:
+    - service: notify.notify
+      data:
+        message: "Wife has arrived at work"
+        title: "Wife Arrived Work"

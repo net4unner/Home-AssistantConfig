@@ -1,7 +1,7 @@
 - alias: sheena_leaving_work
   trigger:
     - platform: state
-      entity_id: device_tracker.siphone_sheena
+      entity_id: device_tracker.sheenasiphone
       from: 'Sheena Work'
       to: 'not_home'
   action:

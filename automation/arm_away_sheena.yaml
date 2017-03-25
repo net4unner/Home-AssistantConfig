@@ -1,7 +1,7 @@
 - alias: arm_away_when_sheena_gone
   trigger:
     - platform: state
-      entity_id: device_tracker.siphone_sheena
+      entity_id: device_tracker.sheenasiphone
       from: 'home'
       to: 'not_home'
     - platform: state
@@ -11,7 +11,14 @@
     condition: and
     conditions:
       - condition: state
-        entity_id: device_tracker.biphone_brian
+        entity_id: device_tracker.briansiphone
         state: 'not_home'
+        for:
+          mintues: 10
+      - condition: state
+        entity_id: device_tracker.sheenasiphone
+        state: not_home
+        for:
+          minutes: 5
   action:
     - service: alarm_control_panel.alarm_arm_away
