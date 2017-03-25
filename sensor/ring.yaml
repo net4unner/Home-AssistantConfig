@@ -1,7 +1,7 @@
 - platform: ring
-    username: !secret ring_user
-    password: !secret ring_pw
-    monitored_conditions:
-      - battery
-      - last_activity
-      - volume
+  username: !secret ring_user
+  password: !secret ring_pw
+  monitored_conditions:
+    - battery
+    - last_activity
+    - volume
