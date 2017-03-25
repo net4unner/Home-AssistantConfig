@@ -61,7 +61,10 @@ alexa:
       
 # Text to speech
 tts:
-  platform: google
+  - platform: amazon_polly
+    aws_access_key_id: !secret polly_access
+    aws_secret_access_key: !secret polly_secret
+    region_name: 'us-east-1'
 
 notify:
   - platform: pushover
