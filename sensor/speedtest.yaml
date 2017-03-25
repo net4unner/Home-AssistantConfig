@@ -1,12 +1,12 @@
 - platform: speedtest
-    minute: 30
-    hour:
-	  - 0
-	  - 6
-	  - 12
-	  - 18
-    monitored_conditions:
-      - ping
-      - download
-      - upload
-    server_id: "544"
+  minute: 30
+  hour:
+    - 0
+    - 6
+    - 12
+    - 18
+  monitored_conditions:
+    - download
+    - upload
+    - ping
+  server_id: "544"
