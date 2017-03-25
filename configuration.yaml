@@ -79,6 +79,12 @@ mqtt:
   username: !secret mqtt_user
   password: !secret mqtt_pw
 
+input_slider:
+  internet_traffic_delta_in:
+    name: "Traffic IN Delta"
+    initial: 0
+    min: 0
+    max: 1000000000000
 
 
 

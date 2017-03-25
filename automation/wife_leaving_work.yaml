@@ -9,10 +9,3 @@
       data:
         message: "Wife has left work"
         title: "Wife Leaving Work"
-    - service: tts.amazon_polly_say
-      data_template:
-        entity_id: media_player.chromecastloft
-        message: >
-          <speak>
-              Your wife is leaving work
-          </speak>
