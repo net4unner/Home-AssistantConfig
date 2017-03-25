@@ -14,7 +14,7 @@
         entity_id: device_tracker.sheenasiphone
         state: 'not_home'
         for:
-          mintues: 10
+          minutes: 10
       - condition: state
         entity_id: device_tracker.briansiphone
         state: not_home
