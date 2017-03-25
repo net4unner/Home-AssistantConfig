@@ -58,37 +58,6 @@ sun:
 alexa:
   intents: !include_dir_named alexa/
 
-
-# Weather
-sensor:
-  - platform: yweather
-    monitored_conditions:
-      - weather
-      - weather_current
-      - temp_min
-      - temp_max
-      - wind_speed
-      - pressure
-      - visibility
-      - humidity
-      - temperature
-  - platform: speedtest
-    minute:
-      - 0
-      - 30
-    monitored_conditions:
-      - ping
-      - download
-      - upload
-    server_id: "544"
-
-  - platform: ring
-    username: !secret ring_user
-    password: !secret ring_pw
-    monitored_conditions:
-      - battery
-      - last_activity
-      - volume
       
 # Text to speech
 tts:
@@ -121,6 +90,7 @@ alarm_control_panel:
 ################################################
 ## Component Includes (Merge List)
 ################################################
+sensor: !include_dir_merge_list sensor
 device_tracker: !include device_tracker.yaml
 automation: !include_dir_merge_list automation
 light: !include_dir_merge_list light
