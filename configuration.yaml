@@ -56,59 +56,8 @@ sun:
 # Alexa setup
 alexa:
   intents: !include_dir_named alexa/
-             
-scene:
-    - name: office_bright
-      entities:
-        light.office1:
-          state: on
-          brightness: 255
-        light.office2:
-          state: on
-          brightness: 255
-          
-    - name: movies
-      entities:
-        light.hue_color_lamp_1:
-          state: on
-          brightness: 100
-          color_name: blue
-        light.hue_color_lamp_2:
-          state: on
-          brightness: 100
-          color_name: blue
-        light.hue_color_lamp_3:
-          state: on
-          brightness: 100
-          color_name: blue
-        light.sink:
-          state: on
-          brightness: 100
-          color_name: blue
-          
-    - name: movies_off
-      entities:
-        light.hue_color_lamp_1:
-          state: on
-          brightness: 100
-          color_name: white
-        light.hue_color_lamp_2:
-          state: on
-          brightness: 100
-          color_name: white
-        light.hue_color_lamp_3:
-          state: on
-          brightness: 100
-          color_name: white
-        light.sink:
-          state: on
-          brightness: 100
-          color_name: white
-    
-        
-        
-        
-        
+
+
 # Weather
 sensor:
   - platform: yweather
@@ -139,6 +88,7 @@ sensor:
       - battery
       - last_activity
       - volume
+      
 # Text to speech
 tts:
   platform: google
@@ -158,7 +108,7 @@ mqtt:
 
 
 
-device_tracker: !include device_tracker.yaml
+
 
 
 alarm_control_panel:
@@ -170,10 +120,9 @@ alarm_control_panel:
 ################################################
 ## Component Includes (Merge List)
 ################################################
-
+device_tracker: !include device_tracker.yaml
 automation: !include_dir_merge_list automation
 light: !include_dir_merge_list light
 zone: !include_dir_merge_list zone
-
-group: !include_dir_merge_named group  
-  
+group: !include_dir_merge_named group
+scene: !include_dir_merge_list scene 
