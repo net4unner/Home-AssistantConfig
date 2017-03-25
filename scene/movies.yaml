@@ -1,0 +1,18 @@
+- name: movies
+  entities:
+    light.hue_color_lamp_1:
+      state: on
+      brightness: 100
+      color_name: blue
+    light.hue_color_lamp_2:
+      state: on
+      brightness: 100
+      color_name: blue
+    light.hue_color_lamp_3:
+      state: on
+      brightness: 100
+      color_name: blue
+    light.sink:
+      state: on
+      brightness: 100
+      color_name: blue
