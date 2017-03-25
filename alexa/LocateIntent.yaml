@@ -7,7 +7,7 @@ speech:
   text: >
     {%- for state in states.device_tracker -%}
       {%- if state.name.lower() == User.lower() -%}
-        {{ state.name }} is at {{ state.state }}
+        {{ state.name }} is currenty at {{ state.state }}
       {%- elif loop.last -%}
         I am sorry, I do not know where {{ User }} is.
       {%- endif -%}
@@ -16,5 +16,5 @@ speech:
     {%- endfor -%}
 card:
   type: simple
-  title: Sample title
-  content: Some more content
+  title: Where is User
+  content: Home Assistant Locate User
