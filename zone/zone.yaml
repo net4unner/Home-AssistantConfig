@@ -9,13 +9,13 @@
   radius: 200
   icon: mdi:home-outline
   
-- name: Sheena Work
+- name: sheena_work
   latitude: !secret latitude_s_work
   longitude: !secret longitude_s_work 
   radius: 200
   icon: mdi:worker
   
-- name: Brian Work
+- name: brian_work
   latitude: !secret latitude_b_work
   longitude: !secret longitude_b_work
   radius: 200
