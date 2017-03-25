@@ -1,7 +1,7 @@
 - alias: arm_away
   trigger:
     - platform: state
-      entity_id: device_tracker.sheenasiphone
+      entity_id: device_tracker.sheenasiphone, device_tracker.briansiphone
       from: 'home'
       to: 'not_home'
     - platform: state
@@ -11,10 +11,6 @@
     - platform: state
       entity_id: alarm_control_panel.alarmcom
       state: 'disarmed'
-    - platform: state
-      entity_id: device_tracker.briansiphone
-      from: 'home'
-      to: 'not_home'
     - platform: state
       entity_id: device_tracker.briansiphone
       from: 'not_home'
