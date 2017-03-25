@@ -1,26 +1,44 @@
-- alias: arm_away_when_brian_gone
+- alias: arm_away
   trigger:
+    - platform: state
+      entity_id: device_tracker.sheenasiphone
+      from: 'home'
+      to: 'not_home'
+    - platform: state
+      entity_id: device_tracker.sheenasiphone
+      from: 'not_home'
+      to: 'sheena_work'
+    - platform: state
+      entity_id: alarm_control_panel.alarmcom
+      state: 'disarmed'
     - platform: state
       entity_id: device_tracker.briansiphone
       from: 'home'
       to: 'not_home'
     - platform: state
-      entity_id: alarm_control_panel.alarmcom
-      state: 'disarmed'
+      entity_id: device_tracker.briansiphone
+      from: 'not_home'
+      to: 'brian_work'
   condition:
     condition: and
     conditions:
       - condition: state
-        entity_id: device_tracker.sheenasiphone
+        entity_id: device_tracker.briansiphone
         state: 'not_home'
         for:
-          minutes: 10
+          minutes: 5
       - condition: state
-        entity_id: device_tracker.briansiphone
+        entity_id: device_tracker.sheenasiphone
         state: not_home
         for:
           minutes: 5
-          
-  
+      - condition: or
+        conditions:
+          - condition: state
+            entity_id: device_tracker.briansiphone
+            state: 'brian_work'
+          - condition: state
+            entity_id: device_tracker.sheenasiphone
+            state: 'sheena_work'
   action:
     - service: alarm_control_panel.alarm_arm_away
