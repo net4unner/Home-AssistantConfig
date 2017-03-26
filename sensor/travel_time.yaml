@@ -1,4 +1,23 @@
 - platform: google_travel_time
-    api_key: XXXX_XXXXX_XXXXX
-    origin: Trondheim, Norway
-    destination: Paris, France
+  name: Brian Phone To Home
+  api_key: !secret google_secret
+  origin: device_tracker.briansiphone
+  destination: zone.home
+    
+- platform: google_travel_time
+  name: Sheena Phone To Home
+  api_key: !secret google_secret
+  origin: device_tracker.sheenasiphone
+  destination: zone.home
+    
+- platform: google_travel_time
+  name: Brian Home to Work
+  api_key: !secret google_secret
+  origin: zone.home
+  destination: zone.brian_work
+  
+- platform: google_travel_time
+  name: Sheena Home to Work
+  api_key: !secret google_secret
+  origin: zone.home
+  destination: zone.sheena_work
