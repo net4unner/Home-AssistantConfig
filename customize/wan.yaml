@@ -3,7 +3,7 @@ sensor.download_speed_mean:
   icon: mdi:speedometer
 
 sensor.upload_speed_mean:
-  friendly_name: 'Spedtest Upload Average'
+  friendly_name: 'Speedtest Upload Average'
   icon: mdi:speedometer
 
 sensor.ping_time_mean:
@@ -17,3 +17,9 @@ sensor.wan_traffic_in_mean:
 sensor.wan_traffic_out_mean:
   friendly_name: 'WAN Upload Average'
   icon: mdi:upload
+  
+sensor.snmp_wan_in:
+  hidden: true
+  
+sensor.snmp_wan_out:
+  hidden: true

@@ -1,0 +1,4 @@
+- platform: google_travel_time
+    api_key: XXXX_XXXXX_XXXXX
+    origin: Trondheim, Norway
+    destination: Paris, France
