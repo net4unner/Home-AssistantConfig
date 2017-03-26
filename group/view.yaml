@@ -1,0 +1,44 @@
+default_view:
+  view: yes
+  entities:
+    - group.family
+    - group.networksnmp
+    - group.travel
+    - group.weather
+    - group.battery
+    - alarm_control_panel.alarmcom
+Home_Security:
+  name: Home Security
+  view: yes
+  entities:
+    - alarm_control_panel.alarmcom
+    - automation.arm_away
+    - automation.arm_stay
+    - sensor.ring_front_door_volume
+Lights:
+  name: Light Panel
+  view: yes
+  entities:
+    - group.all_lights
+    - group.bedroom
+    - group.kitchen
+    - group.living_room
+    - group.loft
+    - group.garage
+Automations:
+  name: All Automations
+  view: yes
+  entities:
+    - group.all_automations
+Battery:
+  name: Battery
+  entities:
+    - sensor.ring_front_door_battery
+NetworkSnmp:
+  name: Bandwidth
+  entities:
+    - sensor.download_speed_mean
+    - sensor.upload_speed_mean
+    - sensor.ping_time_mean
+    - sensor.wan_traffic_in_mean
+    - sensor.wan_traffic_out_mean
