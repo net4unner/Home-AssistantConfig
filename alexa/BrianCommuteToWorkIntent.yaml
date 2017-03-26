@@ -1,0 +1,8 @@
+speech:
+  type: plaintext
+  text: Commute time from home to Brians's work is currently {{ states.sensor.brian_home_to_work  }} minutes
+    
+card:
+  type: simple
+  title: Traffic Conditions
+  content: Ask Home Assistant about current traffic conditions
