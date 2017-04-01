@@ -1,0 +1,5 @@
+office_view:
+  name: Office
+  view: yes
+  entities:
+    - group.office_lights_card
