@@ -13,9 +13,6 @@ homeassistant:
   time_zone: America/New_York
   customize: !include_dir_merge_named customize
 
-# Show links to resources in log and frontend
-introduction:
-
 # Enables the frontend
 frontend:
 
@@ -58,8 +55,6 @@ logbook:
       - input_slider.internet_traffic_delta_in
       - input_slider.internet_traffic_delta_out
       - automation.monitor_traffic
-# Track the sun
-sun:
 
 # Zwave Config
 zwave:
@@ -82,24 +77,6 @@ notify:
     api_key: !secret pushover_api_key
     user_key: !secret pushover_user_key
 
-
-input_slider:
-  internet_traffic_delta_in:
-    name: "Traffic IN Delta"
-    initial: 0
-    min: 0
-    max: 1000000000000
-
-  internet_traffic_delta_out:
-    name: "Traffic OUT Delta"
-    initial: 0
-    min: 0
-    max: 1000000000000
-
-
-
-
-
 alarm_control_panel:
   platform: alarmdotcom
   username: !secret alarm_user 
@@ -110,6 +87,8 @@ alarm_control_panel:
 ## Component Includes (Merge List)
 ################################################
 sensor: !include_dir_merge_list sensor
+input_select: !include misc/input_select.yaml
+input_slider: !include misc/input_slider.yaml
 device_tracker: !include device_tracker.yaml
 automation: !include_dir_merge_list automation
 light: !include_dir_merge_list light

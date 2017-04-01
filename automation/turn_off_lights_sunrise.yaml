@@ -12,6 +12,9 @@
       - condition: time
         after: "7:00:00"
         before: "8:00:00"
+      - condition: state
+        entity_id: group.family_locations_card
+        state: 'not_home'
   action:
     - service: light.turn_off
       entity_id: group.all_lights

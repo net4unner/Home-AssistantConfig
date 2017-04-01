@@ -9,7 +9,10 @@
     conditions:
       - condition: state
         entity_id: alarm_control_panel.alarmcom
-        state: 'armed'
+        state: 'armed_away'
+      - condition: state
+        entity_id: alarm_control_panel.alarmcom
+        state: 'armed_home'
 
   action:
     - service: alarm_control_panel.alarm_arm_away
