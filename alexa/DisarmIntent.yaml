@@ -1,0 +1,5 @@
+action:
+  service: alarm_control_panel.alarm_disarm
+speech:
+  type: plaintext
+  text: System Has Been Disarmed
