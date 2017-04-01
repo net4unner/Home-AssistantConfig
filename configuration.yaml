@@ -24,6 +24,7 @@ http:
   api_password: !secret api_password
   ssl_certificate: !secret ssl_cert
   ssl_key: !secret ssl_key
+  base_url: !secret base_url
   # Uncomment this if you are using SSL or running in Docker etc
   # base_url: example.duckdns.org:8123
 
@@ -53,10 +54,6 @@ logbook:
       - input_slider.internet_traffic_delta_out
       - automation.monitor_traffic
 
-# Zwave Config
-zwave:
-  usb_path: /dev/ttyACM1
-
 # Alexa setup
 alexa:
   intents: !include_dir_named alexa/
@@ -64,10 +61,7 @@ alexa:
       
 # Text to speech
 tts:
-  - platform: amazon_polly
-    aws_access_key_id: !secret polly_access
-    aws_secret_access_key: !secret polly_secret
-    region_name: 'us-east-1'
+  - platform: google
 
 notify:
   - platform: pushover

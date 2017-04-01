@@ -4,5 +4,6 @@ living_room_view:
   entities:
     - group.living_room_lights_card
     - group.media_player_card
-    - media_player.kodia
+    - media_player.kodi
     - media_player.sony_bravia_tv
+    - media_player.xbr55x850c

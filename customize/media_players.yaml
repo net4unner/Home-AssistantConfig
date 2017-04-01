@@ -1,0 +1,7 @@
+media_player.xbr55x850c:
+  friendly_name: 'Living Room Chromecast'
+  hidden: False
+  
+media_player.chromecast8579:
+  friendly_name: 'Bedroom Chromecast'
+  hidden: False
