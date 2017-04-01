@@ -1,4 +1,5 @@
-Weather:
+weather_card:
+  name: Weather
   entities:
     - sensor.dark_sky_cloud_coverage
     - sensor.dark_sky_minutely_summary
@@ -8,3 +9,4 @@ Weather:
     - sensor.dark_sky_humidity
     - sensor.dark_sky_temperature
     - sensor.moon
+    - sun.sun

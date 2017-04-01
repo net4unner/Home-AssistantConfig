@@ -1,4 +1,4 @@
-Travel:
+travel_times_card:
    name: Travel Times
    entities:
     - sensor.brian_home_to_work

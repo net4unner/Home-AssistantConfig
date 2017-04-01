@@ -48,11 +48,22 @@ conversation:
 # Enables support for tracking state changes over time.
 history:
 
+recorder:
+  purge_days: 7
+
 # View all events in a logbook
 logbook:
-
+  exclude:
+    entities:
+      - input_slider.internet_traffic_delta_in
+      - input_slider.internet_traffic_delta_out
+      - automation.monitor_traffic
 # Track the sun
 sun:
+
+# Zwave Config
+zwave:
+  usb_path: /dev/ttyACM1
 
 # Alexa setup
 alexa:
@@ -71,13 +82,6 @@ notify:
     api_key: !secret pushover_api_key
     user_key: !secret pushover_user_key
 
-mqtt:
-  broker: !secret mqtt_broker
-  port: 12464
-  client_id: home-assistant-1
-  keepalive: 60
-  username: !secret mqtt_user
-  password: !secret mqtt_pw
 
 input_slider:
   internet_traffic_delta_in:
@@ -112,3 +116,11 @@ light: !include_dir_merge_list light
 zone: !include_dir_merge_list zone
 group: !include_dir_merge_named group
 scene: !include_dir_merge_list scene 
+
+mqtt:
+  broker: 127.0.0.1
+  port: 1883
+  client_id: home-assistant-1
+  username: pi
+  password: raspberry
+

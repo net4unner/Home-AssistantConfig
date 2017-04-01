@@ -1,0 +1,10 @@
+Lights:
+  name: Light Panel
+  view: yes
+  entities:
+    - group.all_lights
+    - group.bedroom
+    - group.kitchen
+    - group.living_room
+    - group.loft
+    - group.garage

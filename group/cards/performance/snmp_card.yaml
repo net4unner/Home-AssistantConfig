@@ -1,5 +1,5 @@
-NetworkSnmp:
-   name: Bandwidth
+snmp_card:
+   name: SNMP Monitoring
    entities:
     - sensor.download_speed_mean
     - sensor.upload_speed_mean

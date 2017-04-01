@@ -1,0 +1,7 @@
+outside_view:
+  name: Outside
+  view: yes
+  entities:
+    - group.outside_lights
+    - group.ring_card
+    - group.weather_card

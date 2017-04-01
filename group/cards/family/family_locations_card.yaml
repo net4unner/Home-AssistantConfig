@@ -1,4 +1,5 @@
-family:
+family_locations_card:
+  name: Family Locations
   entities:
     - device_tracker.briansiphone
     - device_tracker.sheenasiphone

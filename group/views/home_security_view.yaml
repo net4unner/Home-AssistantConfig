@@ -1,0 +1,8 @@
+Home_Security:
+  name: Home Security
+  view: yes
+  entities:
+    - alarm_control_panel.alarmcom
+    - automation.arm_away
+    - automation.arm_stay
+    - sensor.ring_front_door_volume
