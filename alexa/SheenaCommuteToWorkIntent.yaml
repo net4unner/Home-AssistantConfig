@@ -1,6 +1,6 @@
 speech:
   type: plaintext
-  text: Commute time from home to Sheenas's work is currently {{ states.sensor.sheena_home_to_work  }} minutes
+  text: Commute time from home to Sheenas's work is currently {{ states.sensor.sheena_home_to_work.state  }} minutes
     
 card:
   type: simple

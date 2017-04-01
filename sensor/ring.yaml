@@ -3,5 +3,4 @@
   password: !secret ring_pw
   monitored_conditions:
     - battery
-    - last_activity
     - volume
