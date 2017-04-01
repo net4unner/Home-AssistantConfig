@@ -6,7 +6,7 @@ brian_status:
    - "Away"
    - "Sleeping"
   initial: "Home"
-ben_status:
+sheena_status:
   name: Sheena Status
   options:
    - "Home"
