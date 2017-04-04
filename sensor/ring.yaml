@@ -4,3 +4,4 @@
   monitored_conditions:
     - battery
     - volume
+    - last_activity

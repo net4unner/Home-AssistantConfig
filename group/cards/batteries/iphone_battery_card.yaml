@@ -1,0 +1,5 @@
+iphone_battery_card:
+  name: Iphone Batteries
+  entities:
+    - sensor.brian_iphone_battery
+    - sensor.sheena_iphone_battery

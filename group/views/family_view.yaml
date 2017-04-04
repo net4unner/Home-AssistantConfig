@@ -4,3 +4,4 @@ family_view:
   entities:
     - group.family_locations_card
     - group.travel_times_card
+    - group.iphone_battery_card
