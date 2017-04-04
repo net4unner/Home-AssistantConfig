@@ -1,0 +1,6 @@
+action:
+  service: media_player.turn_on
+  entity_id: media_player.sony_bravia_tv
+speech:
+  type: plaintext
+  text: TV Time
