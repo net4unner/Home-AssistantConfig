@@ -1,5 +1,0 @@
-outside_lights_card:
-  name: Garage
-  entities:
-    - light.garage_left
-    - light.garage_right
