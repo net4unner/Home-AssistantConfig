@@ -68,13 +68,17 @@ logbook:
 # Alexa setup
 alexa:
   intents: !include_dir_named alexa/
+  
 
-      
+wemo:
+
 # Text to speech
 tts:
   - platform: google
 
-sun:  
+sun:
+ifttt:
+  key: !secret iftt_api  
   
 notify:
   - platform: pushover
@@ -86,6 +90,14 @@ alarm_control_panel:
   username: !secret alarm_user 
   password: !secret alarm_pw
   
+cover:
+  platform: garadget
+  covers:
+      !secret garage_id:
+        username: !secret garadget_username
+        password: !secret garadget_password
+        name: Garage Door
+
   
 ################################################
 ## Component Includes (Merge List)

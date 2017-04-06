@@ -5,3 +5,4 @@ outside_view:
     - group.outside_lights_card
     - group.ring_card
     - group.weather_card
+    - group.garage
