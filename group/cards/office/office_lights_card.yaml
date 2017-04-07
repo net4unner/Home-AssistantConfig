@@ -3,3 +3,4 @@ office_lights_card:
   entities:
     - light.office1
     - light.office2
+    - light.bloom_office

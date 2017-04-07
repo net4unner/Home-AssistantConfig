@@ -97,7 +97,9 @@ cover:
         username: !secret garadget_username
         password: !secret garadget_password
         name: Garage Door
-
+nest:
+  client_id: !secret nest_id
+  client_secret: !secret nest_secret
   
 ################################################
 ## Component Includes (Merge List)
@@ -117,5 +119,5 @@ mqtt:
   port: 1883
   client_id: home-assistant-1
   username: pi
-  password: !secret api_password
+  password: !secret mqtt_pw
 
