@@ -15,4 +15,4 @@
         state: 'armed_home'
 
   action:
-    - service: alarm_control_panel.alarm_arm_away
+    - service: alarm_control_panel.alarm_disarm

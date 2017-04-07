@@ -16,3 +16,5 @@
       state: on
       brightness: 100
       color_name: blue
+    media_player.sony_bravia_tv:
+      source: HDMI 2/MHL

@@ -1,0 +1,8 @@
+action:
+  - service: light.turn_off
+    entity_id: light.all_lights
+  - service: alarm_control_panel.alarm_arm_home
+
+speech:
+  type: plaintext
+  text: Bedtime activated

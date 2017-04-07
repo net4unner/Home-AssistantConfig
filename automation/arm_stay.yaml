@@ -6,10 +6,13 @@
       for:
          minutes: 30
   condition:
-    condition: and
+    condition: or
     conditions:
       - condition: state
-        entity_id: group.family
+        entity_id: device_tracker.briansiphone
+        state: "home"
+      - condition: state
+        entity_id: device_tracker.sheenasiphone
         state: "home"
   action:
     - service: alarm_control_panel.alarm_arm_home

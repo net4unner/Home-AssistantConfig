@@ -1,4 +1,4 @@
-- alias: Monitor Traffic
+- alias: Monitor Traffic In
 
   trigger:
     platform: state
@@ -10,7 +10,7 @@
         entity_id: input_slider.internet_traffic_delta_in
         value: '{{ ((trigger.to_state.state | int - trigger.from_state.state | int) * 8 ) / ( as_timestamp(trigger.to_state.last_updated) - as_timestamp(trigger.from_state.last_updated) ) }}'
 
-- alias: Monitor Traffic
+- alias: Monitor Traffic Out
 
   trigger:
     platform: state
