@@ -9,12 +9,12 @@ automation:
         entity_id: device_tracker.sheenasiphone
         from: 'Sheena Work'
         to: 'not_home'
-  action:
-    - service: script.ifttt_notify
-      data_template:
-        value1: 'Wife has Left Work'
-        value2: "It should take her {{ states('sensor.sheena_phone_to_home')}} minutes to get home"
-        value3: ""
+    action:
+      - service: script.ifttt_notify
+        data_template:
+          value1: 'Wife has Left Work'
+          value2: "It should take her {{ states('sensor.sheena_phone_to_home')}} minutes to get home"
+          value3: ""
         
 #### NOTIFY IF WIFE ARRIVED TO WORK
   - alias: Notify If Wife Arrived Work
@@ -23,9 +23,9 @@ automation:
         entity_id: device_tracker.sheenasiphone
         from: 'not_home'
         to: 'Sheena Work'
-  action:
-    - service: script.ifttt_notify
-      data_template:
-        value1: 'Wife Has Arrived To Work'
-        value2: "It took her roughly {{ states('sensor.sheena_home_to_work')}} minutes to get to work"
-        value3: ""
+    action:
+      - service: script.ifttt_notify
+        data_template:
+          value1: 'Wife Has Arrived To Work'
+          value2: "It took her roughly {{ states('sensor.sheena_home_to_work')}} minutes to get to work"
+          value3: ""
