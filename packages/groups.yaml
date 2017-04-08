@@ -1,0 +1,53 @@
+################################################
+## Packages / Groups Package
+################################################
+group:
+#########################
+# Cards for Views Below      
+#########################
+  bedroom_lights_card:
+    name: Bedroom
+    entities:
+      - light.brian
+      - light.sheena
+  media_equipment_card_loft:
+    name: Media Equipment
+    entities:
+      - media_player.chromecast8579
+      - switch.bedroom_tv
+  family_locations_card:
+    name: Family Locations
+    entities:
+      - device_tracker.briansiphone
+      - device_tracker.sheenasiphone
+      - device_tracker.briansapple_watch
+      - input_select.brian_status
+      - input_select.sheena_status
+  travel_times_card:
+    name: Travel Times
+    entities:
+      - sensor.brian_home_to_work
+      - sensor.brian_phone_to_home
+      - sensor.sheena_home_to_work
+      - sensor.sheena_phone_to_home
+##################################
+# Views Section Using Cards Above
+##################################
+  Automations:
+    name: All Automations
+    view: yes
+    entities:
+      - group.all_automations
+  bedroom_view:
+    name: Bedroom
+    view: yes
+    entities:
+      - group.bedroom_lights_card
+      - group.media_equipment_card_loft
+  family_view:
+    name: Family
+    view: yes
+    entities:
+      - group.family_locations_card
+      - group.travel_times_card
+      - group.iphone_battery_card
