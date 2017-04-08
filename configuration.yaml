@@ -12,6 +12,7 @@ homeassistant:
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: America/New_York
   customize: !include_dir_merge_named customize
+  packages: !include_dir_named packages
 
 # Enables the frontend
 frontend:
@@ -110,7 +111,6 @@ group: !include_dir_merge_named group
 input_select: !include_dir_merge_named input_select
 input_slider: !include misc/input_slider.yaml
 light: !include_dir_merge_list light
-packages: !include_dir_named packages
 scene: !include_dir_merge_list scene 
 script: !include_dir_merge_named script
 sensor: !include_dir_merge_list sensor
