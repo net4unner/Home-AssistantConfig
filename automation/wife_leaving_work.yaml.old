@@ -1,0 +1,11 @@
+- alias: sheena_leaving_work
+  trigger:
+    - platform: state
+      entity_id: device_tracker.sheenasiphone
+      from: 'Sheena Work'
+      to: 'not_home'
+  action:
+    - service: notify.notify
+      data:
+        message: "Wife has left work"
+        title: "Wife Leaving Work"
