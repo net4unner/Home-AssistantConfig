@@ -1,5 +1,0 @@
-upstairs_view:
-  name: Upstairs
-  view: yes
-  entities:
-    - group.nest_card

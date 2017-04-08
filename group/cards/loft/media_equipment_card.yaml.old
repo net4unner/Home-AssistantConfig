@@ -1,5 +1,0 @@
-media_equipment_card:
-  name: Media Equipment
-  entities:
-    - media_player.chromecastloft
-    - switch.loft_tv

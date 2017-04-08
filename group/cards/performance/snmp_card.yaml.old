@@ -1,8 +1,0 @@
-snmp_card:
-   name: SNMP Monitoring
-   entities:
-    - sensor.download_speed_mean
-    - sensor.upload_speed_mean
-    - sensor.ping_time_mean
-    - sensor.wan_traffic_in_mean
-    - sensor.wan_traffic_out_mean

@@ -1,5 +1,0 @@
-loft_lights_card:
-  name: Loft
-  entities:
-    - light.loft1
-    - light.loft2

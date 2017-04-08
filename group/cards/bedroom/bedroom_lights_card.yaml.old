@@ -1,5 +1,0 @@
-bedroom_lights_card:
-  name: Bedroom
-  entities:
-    - light.brian
-    - light.sheena

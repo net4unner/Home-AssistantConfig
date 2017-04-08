@@ -1,5 +1,0 @@
-kitchen_view:
-  name: Kitchen
-  view: yes
-  entities:
-    - group.kitchen_lights_card

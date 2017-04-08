@@ -1,6 +1,0 @@
-bedroom_view:
-  name: Bedroom
-  view: yes
-  entities:
-    - group.bedroom_lights_card
-    - group.media_equipment_card_loft

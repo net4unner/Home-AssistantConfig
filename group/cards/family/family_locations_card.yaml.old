@@ -1,8 +1,0 @@
-family_locations_card:
-  name: Family Locations
-  entities:
-    - device_tracker.briansiphone
-    - device_tracker.sheenasiphone
-    - device_tracker.briansapple_watch
-    - input_select.brian_status
-    - input_select.sheena_status

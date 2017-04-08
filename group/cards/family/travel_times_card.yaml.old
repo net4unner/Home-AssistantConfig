@@ -1,7 +1,0 @@
-travel_times_card:
-   name: Travel Times
-   entities:
-    - sensor.brian_home_to_work
-    - sensor.brian_phone_to_home
-    - sensor.sheena_home_to_work
-    - sensor.sheena_phone_to_home

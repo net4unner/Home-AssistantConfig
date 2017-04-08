@@ -1,5 +1,0 @@
-ring_card:
-  name: Ring Doorbell
-  entities:
-    - sensor.ring_front_door_battery
-    - sensor.ring_front_door_volume

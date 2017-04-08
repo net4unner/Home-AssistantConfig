@@ -1,9 +1,0 @@
-media_view:
-  name: Media Players
-  view: yes
-  entities:
-    - media_player.chromecast8579
-    - media_player.chromecastloft
-    - media_player.kodi
-    - media_player.sony_bravia_tv
-    - media_player.xbr55x850c

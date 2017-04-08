@@ -1,6 +1,0 @@
-loft_view:
-  name: Loft
-  view: yes
-  entities:
-    - group.loft_lights_card
-    - group.media_equipment_card

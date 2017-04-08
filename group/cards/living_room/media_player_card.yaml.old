@@ -1,5 +1,0 @@
-media_player_card:
-  name: Media Players
-  entities:
-    - media_player.sony_bravia_tv
-    - media_player.kodi

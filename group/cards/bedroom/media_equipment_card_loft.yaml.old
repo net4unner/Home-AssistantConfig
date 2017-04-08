@@ -1,5 +1,0 @@
-media_equipment_card_loft:
-  name: Media Equipment
-  entities:
-    - media_player.chromecast8579
-    - switch.bedroom_tv

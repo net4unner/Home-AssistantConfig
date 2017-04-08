@@ -1,6 +1,0 @@
-office_lights_card:
-  name: Office
-  entities:
-    - light.office1
-    - light.office2
-    - light.bloom_office
