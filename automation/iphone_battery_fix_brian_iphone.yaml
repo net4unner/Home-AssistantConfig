@@ -1,0 +1,13 @@
+- alias: "Update iCloud Brian Iphone"
+  trigger:
+    - platform: state
+      entity_id: device_tracker.briansiphone
+    - platform: time
+      minutes: '/30'
+      seconds: 0
+  action:
+    - service: device_tracker.icloud_set_interval
+      data:
+        device_name: briansiphone
+        interval: 1800
+        
