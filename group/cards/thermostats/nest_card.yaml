@@ -1,0 +1,12 @@
+nest_card:
+  name: Nest Thermostat
+  entities:
+    - binary_sensor.hallway_thermostat_online
+    - binary_sensor.hallway_thermostat_fan
+    - binary_sensor.hallway_thermostat_has_leaf
+    - climate.hallway
+    - sensor.hallway_thermostat_target
+    - sensor.hallway_thermostat_temperature
+    - sensor.hallway_thermostat_humidity
+    - sensor.hallway_thermostat_hvac_state
+    - sensor.hallway_thermostat_operation_mode
