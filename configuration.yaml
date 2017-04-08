@@ -105,8 +105,8 @@ nest:
 ## Component Includes (Merge List)
 ################################################
 sensor: !include_dir_merge_list sensor
-input_select: !include misc/input_select.yaml
-input_slider: !include misc/input_slider.yaml
+input_select: !include_dir_merge_list input_select
+input_slider: !include_dir_merge_list input_slider
 device_tracker: !include device_tracker.yaml
 automation: !include_dir_merge_list automation
 light: !include_dir_merge_list light
