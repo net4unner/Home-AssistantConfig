@@ -3,7 +3,7 @@ living_room_view:
   view: yes
   entities:
     - group.living_room_lights_card
-    - group.media_player_card
+    - group.living_room_media_player_card
     - media_player.kodi
     - media_player.sony_bravia_tv
     - media_player.xbr55x850c
