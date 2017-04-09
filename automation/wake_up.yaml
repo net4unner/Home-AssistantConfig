@@ -16,7 +16,12 @@
           - sun
   action:
     - service: light.turn_on
-      entity_id: group.all_lights
+      entity_id:
+        - group.bedroom
+        - group.living_room
+        - light.garage_left
+        - light.garage_right
+        - light.back_door        
       data:
         transition: 300
         brightness: 60
