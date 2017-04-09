@@ -1,0 +1,74 @@
+############################################
+# Packages / Presence Detection
+############################################
+homeassistant:
+  customize:
+    device_tracker.sheenasiphone:
+      friendly_name: 'Sheena'
+      hidden: False
+  
+    device_tracker.briansiphone:
+      friendly_name: 'Brian'
+      hidden: False
+      
+automation:
+############# AWAY
+  - alias: Away Mode On
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: 'device_tracker.briansiphone'
+          state: 'not_home'
+        - condition: state
+          entity_id: 'device_tracker.sheenasiphone'
+          state: 'not_home'
+        - condition: state
+          entity_id: 'input_boolean.away'
+          state: 'off'
+    trigger:
+      - platform: state
+        entity_id: device_tracker.briansiphone, device_tracker.sheenasiphone
+        to: 'not_home'
+    action:
+      - service: homeassistant.turn_on
+        entity_id: input_boolean.away
+      - service: script.ifttt_notify
+        data_template:
+          value1: 'Currently no one is home'
+          value2: "Alarm state is currently {{ states('alarm_control_panel.alarmcom')}}"
+          value3: 'Setting away mode and all corresponding automations'
+            
+########### HOME
+  - alias: 'Set Away Mode Off'
+    condition:
+    - condition: state
+      entity_id: input_boolean.away
+      state: 'on'
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: 'device_tracker.briansiphone'
+          state: 'home'
+        - condition: state
+          entity_id: 'device_tracker.sheenasiphone'
+          state: 'home'
+    trigger:
+      - platform: state
+        entity_id: device_tracker.briansiphone, device_tracker.sheenasiphone
+        to: 'home'
+    action:
+      - service: homeassistant.turn_off
+        entity_id: input_boolean.away
+      - service: script.ifttt_notify
+        data_template:
+          value1: "Currently everyone is home"
+          value2: "Alarm state is currently {{ states('alarm_control_panel.alarmcom')}}"
+          value3: "Setting home mode and all corresponding automations"
+            
+####### MODES
+input_boolean:
+  away:
+    name: Away
+    icon: mdi:account-off
+      

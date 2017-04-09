@@ -65,6 +65,14 @@ logbook:
       - input_slider.internet_traffic_delta_in
       - input_slider.internet_traffic_delta_out
       - automation.monitor_traffic
+      - sensor.snmp_wan_in
+      - sensor.wan_traffic_in_mean
+      - sensor.wan_traffic_out_mean
+      - sensor.garage_door
+      - sensor.garage_door_status
+      - sensor.garage_door_time_in_state
+      - sensor.garage_door_wifi_signal_strength
+      - sensor.garage_door_reflection_rate
 
 # Alexa setup
 alexa:
