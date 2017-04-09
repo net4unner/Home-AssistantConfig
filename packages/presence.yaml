@@ -33,6 +33,7 @@ automation:
     action:
       - service: homeassistant.turn_on
         entity_id: input_boolean.away
+      - service: alarm_control_panel.alarm_arm_away
       - service: script.ifttt_notify
         data_template:
           value1: 'Currently no one is home'
@@ -60,6 +61,7 @@ automation:
     action:
       - service: homeassistant.turn_off
         entity_id: input_boolean.away
+      - service: alarm_control_panel.alarm_disarm
       - service: script.ifttt_notify
         data_template:
           value1: "Currently everyone is home"

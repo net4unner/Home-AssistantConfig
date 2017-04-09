@@ -1,0 +1,199 @@
+#########################################
+# Packages / Sensors
+#########################################
+
+
+###### SENSORS ------------------------------------------------------------------------------
+sensor:
+###### DAY OF THE WEEK
+  - platform: template
+    sensors:
+      date_weekday:
+        value_template: "{{as_timestamp(now())|timestamp_custom('%A', True)}}"
+
+###### MONTH OF THE YEAR
+  - platform: template
+    sensors:
+      date_month:
+        value_template: "{{as_timestamp(now())|timestamp_custom('%B', True)}}"
+
+###### DAY OF THE MONTH
+  - platform: template
+    sensors:
+      date_day:
+        value_template: "{{as_timestamp(now())|timestamp_custom('%C', True)}}"
+
+
+########DATE TIME & Weather
+  - platform: yr
+  - platform: time_date
+    display_options:
+      - "date_time"
+  - platform: darksky
+    api_key: !secret forecast_key
+    monitored_conditions:
+      - summary
+      - precip_type
+      - precip_intensity
+      - precip_intensity_max
+      - temperature
+      - wind_speed
+      - cloud_cover
+      - humidity
+      - nearest_storm_distance
+      - minutely_summary
+    
+    
+######## SNMP WAN Monitor
+  - platform: snmp
+    name: snmp_wan_in
+    host: 192.168.1.1
+    baseoid: 1.3.6.1.2.1.2.2.1.10.2
+  
+  - platform: snmp
+    name: snmp_wan_out
+    host: 192.168.1.1
+    baseoid: 1.3.6.1.2.1.2.2.1.16.2
+  
+  - platform: template
+    sensors:
+      internet_speed_in:
+        friendly_name: 'Internet Speed Down'
+        value_template: '{{ ((states.input_slider.internet_traffic_delta_in.state | float ) / 1000000 ) | round(2) }}'
+        unit_of_measurement: 'Mbps'
+
+  - platform: template
+    sensors:
+      internet_speed_out:
+        friendly_name: 'Internet Speed Up'
+        value_template: '{{ ((states.input_slider.internet_traffic_delta_out.state | float ) / 1000000 ) | round(2) }}'
+        unit_of_measurement: 'Mbps'
+
+  - platform: statistics
+    name: 'WAN Traffic IN'
+    entity_id: sensor.internet_speed_in
+
+  - platform: statistics
+    name: 'WAN Traffic OUT'
+    entity_id: sensor.internet_speed_out  
+
+############## System Monitor -----------------------
+  - platform: systemmonitor
+    resources:
+      # - type: last_boot
+      - type: since_last_boot
+      - type: disk_use_percent
+        arg: /
+      - type: memory_free
+
+############# Garage --------------------------------
+  - platform: template
+    sensors:
+      garage_door_status:
+        friendly_name: 'State of the door'
+        value_template: '{{ states.cover.garage_door.state }}'
+      garage_door_time_in_state:
+        friendly_name: 'Time Since Change'
+        value_template: '{{ states.cover.garage_door.attributes["time in state"] }}'
+      garage_door_wifi_signal_strength:
+        friendly_name: 'WiFi Strength'
+        value_template: '{{ states.cover.garage_door.attributes["wifi signal strength (dB)"] }}'
+        unit_of_measurement: 'dB'
+      garage_door_reflection_rate:
+        friendly_name: 'Reflection Rate'
+        value_template: '{{ states.cover.garage_door.attributes["sensor reflection rate"] }}' 
+      
+############# Ring ----------------------------------
+  - platform: ring
+    username: !secret ring_user
+    password: !secret ring_pw
+    monitored_conditions:
+      - battery
+      - volume
+      - last_activity
+      
+############# Batteries ------------------------------
+  - platform: template
+    sensors:
+      brian_iphone_battery:
+        unit_of_measurement: '%'
+        entity_id: device_tracker.briansiphone
+        value_template: "{{ (states.device_tracker.briansiphone.attributes|default).battery|default|int('unknown') }}"
+        icon_template: >-
+          {% set battery_state = states('sensor.brian_iphone_battery_state')|lower %}
+          {% set battery_level = states('sensor.brian_iphone_battery')|int('unknown') %}
+          {% set battery_round = (battery_level|int / 10)|int * 10 %}
+          {% if battery_level == 'unknown' %}
+            mdi:battery-unknown
+          {% elif battery_state == 'charging' %}
+            {% if battery_round < 20 %}
+              {% set battery_round = 20 %}
+            {% elif battery_round == 50 %}
+              {% set battery_round = 60 %}
+            {% elif battery_round == 70 %}
+              {% set battery_round = 80 %}
+            {% endif %}
+            mdi:battery-charging-{{ battery_round }}
+          {% else %}
+            {% if battery_round >= 100 %}
+              mdi:battery
+            {% elif battery_round > 0 %}
+              mdi:battery-{{ battery_round }}
+            {% else %}
+              mdi:battery-alert
+            {% endif %}
+          {% endif %}
+  - platform: template
+    sensors:
+      sheena_iphone_battery:
+        unit_of_measurement: '%'
+        entity_id: device_tracker.sheenasiphone
+        value_template: "{{ (states.device_tracker.sheenasiphone.attributes|default).battery|default|int('unknown') }}"
+        icon_template: >-
+          {% set battery_state = states('sensor.sheena_iphone_battery_state')|lower %}
+          {% set battery_level = states('sensor.sheena_iphone_battery')|int('unknown') %}
+          {% set battery_round = (battery_level|int / 10)|int * 10 %}
+          {% if battery_level == 'unknown' %}
+            mdi:battery-unknown
+          {% elif battery_state == 'charging' %}
+            {% if battery_round < 20 %}
+              {% set battery_round = 20 %}
+            {% elif battery_round == 50 %}
+              {% set battery_round = 60 %}
+            {% elif battery_round == 70 %}
+              {% set battery_round = 80 %}
+            {% endif %}
+            mdi:battery-charging-{{ battery_round }}
+          {% else %}
+            {% if battery_round >= 100 %}
+              mdi:battery
+            {% elif battery_round > 0 %}
+              mdi:battery-{{ battery_round }}
+            {% else %}
+              mdi:battery-alert
+            {% endif %}
+          {% endif %}        
+############## GOOGLE Travel Time
+  - platform: google_travel_time
+    name: Brian Phone To Home
+    api_key: !secret google_secret
+    origin: device_tracker.briansiphone
+    destination: zone.home
+        
+  - platform: google_travel_time
+    name: Sheena Phone To Home
+    api_key: !secret google_secret
+    origin: device_tracker.sheenasiphone
+    destination: zone.home
+        
+  - platform: google_travel_time
+    name: Brian Home to Work
+    api_key: !secret google_secret
+    origin: zone.home
+    destination: zone.brian_work
+      
+  - platform: google_travel_time
+    name: Sheena Home to Work
+    api_key: !secret google_secret
+    origin: zone.home
+    destination: zone.sheena_work
