@@ -1,0 +1,22 @@
+- alias: arm_stay
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.alarmcom
+      state: "disarmed"
+      for:
+         minutes: 30
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: device_tracker.briansiphone
+        state: "home"
+      - condition: state
+        entity_id: device_tracker.sheenasiphone
+        state: "home"
+  action:
+    - service: alarm_control_panel.alarm_arm_home
+    - service: notify.notify
+      data:
+        message: "System has been armed to stay"
+        title: "Arm Stay"
