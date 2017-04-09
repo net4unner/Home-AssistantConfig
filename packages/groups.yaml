@@ -87,6 +87,8 @@ group:
     entities:
       - sensor.ring_front_door_battery
       - sensor.ring_front_door_volume
+      - binary_sensor.ring_front_door_ding
+      - binary_sensor.ring_front_door_motion
   weather_card:
     name: Weather
     entities:
@@ -148,6 +150,8 @@ group:
       - automation.arm_away
       - automation.arm_stay
       - sensor.ring_front_door_volume
+      - binary_sensor.ring_front_door_ding
+      - binary_sensor.ring_front_door_motion
   kitchen_view:
     name: Kitchen
     view: yes

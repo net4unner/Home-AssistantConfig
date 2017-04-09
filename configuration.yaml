@@ -109,6 +109,10 @@ cover:
 nest:
   client_id: !secret nest_id
   client_secret: !secret nest_secret
+
+ring:
+  username: !secret ring_user
+  password: !secret ring_pw
   
 ################################################
 ## Component Includes (Merge List)
@@ -121,13 +125,6 @@ input_slider: !include misc/input_slider.yaml
 light: !include_dir_merge_list light
 scene: !include_dir_merge_list scene 
 script: !include_dir_merge_named script
-sensor: !include_dir_merge_list sensor
 zone: !include_dir_merge_list zone
 
-mqtt:
-  broker: 127.0.0.1
-  port: 1883
-  client_id: home-assistant-1
-  username: pi
-  password: !secret mqtt_pw
 

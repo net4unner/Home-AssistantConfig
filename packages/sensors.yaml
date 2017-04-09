@@ -3,6 +3,7 @@
 #########################################
 
 
+
 ###### SENSORS ------------------------------------------------------------------------------
 sensor:
 ###### DAY OF THE WEEK
@@ -105,8 +106,6 @@ sensor:
       
 ############# Ring ----------------------------------
   - platform: ring
-    username: !secret ring_user
-    password: !secret ring_pw
     monitored_conditions:
       - battery
       - volume
@@ -197,3 +196,10 @@ sensor:
     api_key: !secret google_secret
     origin: zone.home
     destination: zone.sheena_work
+
+###### BINARY SENSORS ----------------------------------------------
+binary_sensor:
+  - platform: ring
+    monitored_conditions:
+      - ding
+      - motion
