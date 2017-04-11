@@ -1,0 +1,8 @@
+speech:
+  type: plaintext
+  text: "{{ states.sensor.recycling_day.state }}"
+
+card:
+  type: simple
+  title: Recyle Day
+  content: Ask Home Assistant if today is recyling day

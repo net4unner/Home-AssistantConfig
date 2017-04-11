@@ -30,7 +30,7 @@ sensor:
       recycling_day:
         value_template: >
           {%- if "{{as_timestamp(now())|timestamp_custom('%w', true)|lower}} % 2 == 0" and as_timestamp(now())|timestamp_custom('%A', true)  == 'Tuesday' -%}
-            Today is Recycle Day
+            Today is Recycling Day
           {%- else -%}
             {{(2 - as_timestamp(now())|timestamp_custom('%w', true) | int)%7}} Days untill next recycle pickup.
           {%- endif %}
