@@ -29,20 +29,20 @@ sensor:
     sensors:
       recycling_day:
         value_template: >
-          {% if ((as_timestamp(now()) | timestamp_custom('%w', true) | int) % 2 == 0)  and as_timestamp(now())|timestamp_custom('%A', true)  == 'Tuesday' %}
-           ON
-          {% else %}
-           OFF
-          {% endif %}
+          {%- if "{{as_timestamp(now())|timestamp_custom('%w', true)|lower}} % 2 == 0" and as_timestamp(now())|timestamp_custom('%A', true)  == 'Tuesday' -%}
+            Today is Recycle Day
+          {%- else -%}
+            {{(2 - as_timestamp(now())|timestamp_custom('%w', true) | int)%7}} Days untill next recycle pickup.
+          {%- endif %}
 #### Garbage DAY
   - platform: template
     sensors:
       trash_day:
         value_template: >
-          {%- if as_timestamp(now())|timestamp_custom('%A', true) == 'Thursday'  -%}
-            ON
+          {%- if as_timestamp(now())|timestamp_custom('%A', true)  == 'Thursday' -%}
+            Today is Garbage Day
           {%- else -%}
-            OFF
+            {{(4 - as_timestamp(now())|timestamp_custom('%w', true) | int)%7}} Days untill next garbage pickup.
           {%- endif %}
 
 
