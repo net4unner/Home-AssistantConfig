@@ -10,12 +10,51 @@ automation:
         from: 'Sheena Work'
         to: 'not_home'
     action:
-      - service: script.ifttt_notify
+      - service: notify.notify
         data_template:
-          value1: 'Wife has Left Work'
-          value2: "It should take her {{ states('sensor.sheena_phone_to_home')}} minutes to get home"
-          value3: ""
-        
+          title: 'Wife has Left Work'
+          message: "It should take her {{ states('sensor.sheena_phone_to_home')}} minutes to get home"
+
+#### NOTIFY IF RECYCLING DAY
+  - alias: Notify If Recycling Day
+    trigger:
+      - platform: state
+        entity_id: sensor.recycling_day
+        to: 'ON'
+    condition:
+      condition: and
+      conditions:
+      - condition: time
+        before: "6:15:00"
+      - condition: time
+        after: "6:00:00"
+    action:
+      - service: notify.notify
+        data:
+          message: "Don't forget to put out recycling"
+          title: "Today is recycling day!"
+
+#### NOTIFY IF GARBAGE DAY
+  - alias: Notify If Garbage Day
+    trigger:
+      - platform: state
+        entity_id: sensor.trash_day
+        to: 'ON'
+    condition:
+      condition: and
+      conditions:
+      - condition: time
+        before: "6:15:00"
+      - condition: time
+        after: "6:00:00"
+    action:
+      - service: notify.notify
+        data:
+          message: "Don't forget to put out garbage"
+          title: "Today is garbage day!"
+
+
+
 #### NOTIFY IF WIFE ARRIVED TO WORK
   - alias: Notify If Wife Arrived Work
     trigger:
@@ -24,8 +63,7 @@ automation:
         from: 'not_home'
         to: 'Sheena Work'
     action:
-      - service: script.ifttt_notify
+      - service: notify.notify
         data_template:
-          value1: 'Wife Has Arrived To Work'
-          value2: "It took her roughly {{ states('sensor.sheena_home_to_work')}} minutes to get to work"
-          value3: ""
+          title: 'Wife Has Arrived To Work'
+          message: "It took her roughly {{ states('sensor.sheena_home_to_work')}} minutes to get to work"

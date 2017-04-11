@@ -22,7 +22,28 @@ sensor:
   - platform: template
     sensors:
       date_day:
-        value_template: "{{as_timestamp(now())|timestamp_custom('%C', True)}}"
+        value_template: "{{as_timestamp(now())|timestamp_custom('%d', True)}}"
+
+##### RECYCLING DAY
+  - platform: template
+    sensors:
+      recycling_day:
+        value_template: >
+          {% if ((as_timestamp(now()) | timestamp_custom('%w', true) | int) % 2 == 0)  and as_timestamp(now())|timestamp_custom('%A', true)  == 'Tuesday' %}
+           ON
+          {% else %}
+           OFF
+          {% endif %}
+#### Garbage DAY
+  - platform: template
+    sensors:
+      trash_day:
+        value_template: >
+          {%- if as_timestamp(now())|timestamp_custom('%A', true) == 'Thursday'  -%}
+            ON
+          {%- else -%}
+            OFF
+          {%- endif %}
 
 
 ########DATE TIME & Weather
@@ -43,19 +64,19 @@ sensor:
       - humidity
       - nearest_storm_distance
       - minutely_summary
-    
-    
+
+
 ######## SNMP WAN Monitor
   - platform: snmp
     name: snmp_wan_in
     host: 192.168.1.1
     baseoid: 1.3.6.1.2.1.2.2.1.10.2
-  
+
   - platform: snmp
     name: snmp_wan_out
     host: 192.168.1.1
     baseoid: 1.3.6.1.2.1.2.2.1.16.2
-  
+
   - platform: template
     sensors:
       internet_speed_in:
@@ -76,7 +97,7 @@ sensor:
 
   - platform: statistics
     name: 'WAN Traffic OUT'
-    entity_id: sensor.internet_speed_out  
+    entity_id: sensor.internet_speed_out
 
 ############## System Monitor -----------------------
   - platform: systemmonitor
@@ -102,15 +123,15 @@ sensor:
         unit_of_measurement: 'dB'
       garage_door_reflection_rate:
         friendly_name: 'Reflection Rate'
-        value_template: '{{ states.cover.garage_door.attributes["sensor reflection rate"] }}' 
-      
+        value_template: '{{ states.cover.garage_door.attributes["sensor reflection rate"] }}'
+
 ############# Ring ----------------------------------
   - platform: ring
     monitored_conditions:
       - battery
       - volume
       - last_activity
-      
+
 ############# Batteries ------------------------------
   - platform: template
     sensors:
@@ -171,26 +192,26 @@ sensor:
             {% else %}
               mdi:battery-alert
             {% endif %}
-          {% endif %}        
+          {% endif %}
 ############## GOOGLE Travel Time
   - platform: google_travel_time
     name: Brian Phone To Home
     api_key: !secret google_secret
     origin: device_tracker.briansiphone
     destination: zone.home
-        
+
   - platform: google_travel_time
     name: Sheena Phone To Home
     api_key: !secret google_secret
     origin: device_tracker.sheenasiphone
     destination: zone.home
-        
+
   - platform: google_travel_time
     name: Brian Home to Work
     api_key: !secret google_secret
     origin: zone.home
     destination: zone.brian_work
-      
+
   - platform: google_travel_time
     name: Sheena Home to Work
     api_key: !secret google_secret
