@@ -21,7 +21,8 @@
         - group.living_room
         - light.garage_left
         - light.garage_right
-        - light.back_door        
+        - light.back_door
       data:
         transition: 300
         brightness: 60
+    - service: alarm_control_panel.alarm_disarm
