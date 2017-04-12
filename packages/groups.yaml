@@ -121,11 +121,11 @@ group:
       - sensor.hallway_thermostat_humidity
       - sensor.hallway_thermostat_hvac_state
       - sensor.hallway_thermostat_operation_mode
-   trash_recycle_card:
-     name: Recycling & Trash
-     entities:
-       - sensor.recycling_day
-       - sensor.trash_day
+  trash_recycle_card:
+    name: Recycling & Trash
+    entities:
+      - sensor.recycling_day
+      - sensor.trash_day
 ##################################
 # Views Section Using Cards Above
 ##################################
