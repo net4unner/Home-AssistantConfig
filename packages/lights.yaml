@@ -1,0 +1,12 @@
+##############################################################
+## Packages / Lights
+##############################################################
+script:
+  office_bright:
+    sequence:
+      - service: light.turn_on
+        data:
+          entity_id:
+            group.office_lights_card:
+          brightness: 255
+          

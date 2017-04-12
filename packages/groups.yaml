@@ -3,7 +3,7 @@
 ################################################
 group:
 #########################
-# Cards for Views Below      
+# Cards for Views Below
 #########################
   bedroom_lights_card:
     name: Bedroom
@@ -121,6 +121,11 @@ group:
       - sensor.hallway_thermostat_humidity
       - sensor.hallway_thermostat_hvac_state
       - sensor.hallway_thermostat_operation_mode
+   trash_recycle_card:
+     name: Recycling & Trash
+     entities:
+       - sensor.recycling_day
+       - sensor.trash_day
 ##################################
 # Views Section Using Cards Above
 ##################################
@@ -204,9 +209,9 @@ group:
       - group.ring_card
       - group.weather_card
       - group.garage
+      - group.trash_recycle_card
   upstairs_view:
     name: Upstairs
     view: yes
     entities:
       - group.nest_card
-
