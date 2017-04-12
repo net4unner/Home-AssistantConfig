@@ -24,8 +24,8 @@ sensor.garage_door_wifi_signal_strength:
 
 sensor.recycling_day:
   friendly_name: 'Recycling Day'
-  icon: mdi:recyle
+  icon: mdi:recycle
 
 sensor.trash_day:
   friendly_name: 'Trash Day'
-  icon: mdi:Delete
+  icon: mdi:delete
