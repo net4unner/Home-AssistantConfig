@@ -32,7 +32,7 @@ sensor:
           {%- if "{{as_timestamp(now())|timestamp_custom('%w', true)|lower}} % 2 == 0" and as_timestamp(now())|timestamp_custom('%A', true)  == 'Tuesday' -%}
             Today is Recycling Day
           {%- else -%}
-            {{(2 - as_timestamp(now())|timestamp_custom('%w', true) | int)%7}} Days untill next recycle pickup.
+            {{(2 - as_timestamp(now())|timestamp_custom('%w', true) | int)%14}} Days untill next recycle pickup.
           {%- endif %}
 #### Garbage DAY
   - platform: template
