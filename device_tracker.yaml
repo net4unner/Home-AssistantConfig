@@ -1,11 +1,8 @@
-- platform: asuswrt
-  host: 192.168.1.1
-  username: admin
-  password: !secret wrt_pw
-  interval_seconds: 10
-  consider_home: 60
-  track_new_devices: yes
-  protocol: telnet
+- platform: unifi
+  host: !secret unifi_host
+  verify_ssl: False
+  username: !secret unifi_user
+  password: !secret unifi_pw
 - platform: icloud
   username: !secret bicloud_user
   password: !secret bicloud_pw

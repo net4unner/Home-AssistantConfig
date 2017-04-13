@@ -17,8 +17,8 @@
   action:
     - service: light.turn_on
       entity_id:
-        - group.bedroom
-        - group.living_room
+        - group.bedroom_lights_card
+        - group.living_room_lights_card
         - light.garage_left
         - light.garage_right
         - light.back_door

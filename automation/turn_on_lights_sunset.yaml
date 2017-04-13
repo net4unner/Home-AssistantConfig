@@ -1,8 +1,8 @@
 - alias: turn_on_lights_sunset
   trigger:
-    - platform: state
-      entity_id: sun.sun
-      state: below_horizon
+    - platform: sun
+      event: sunset
+      offset: '-00:30:00'
   condition:
     condition: and
     conditions:
@@ -15,7 +15,18 @@
 
   action:
     - service: light.turn_on
-      entity_id: group.all_lights
+      entity_id:
+        - group.bedroom_lights_card
+        - group.living_room_lights_card
+        - light.garage_left
+        - light.garage_right
+        - light.back_door
+      data:
+        transition: 300
+        brightness: 144
+        xy_color: [0.5016, 0.4151]
+        rgb_color: [243, 179, 80]
+        color_temp: 443
     - service: notify.notify
       data:
         message: "Lights have been turned on due to sunset"
