@@ -46,28 +46,6 @@ sensor:
           {%- endif %}
 
 
-########DATE TIME & Weather
-  - platform: yr
-  - platform: time_date
-    display_options:
-      - "date_time"
-  - platform: darksky
-    api_key: !secret forecast_key
-    monitored_conditions:
-      - summary
-      - precip_type
-      - precip_probability
-      - precip_intensity
-      - precip_intensity_max
-      - temperature
-      - wind_speed
-      - cloud_cover
-      - humidity
-      - nearest_storm_distance
-      - minutely_summary
-      - hourly_summary
-
-
 ######## SNMP WAN Monitor
   - platform: snmp
     name: snmp_wan_in

@@ -1,0 +1,131 @@
+################################################################
+## Group / Rooms
+################################################################
+
+master_bedroom:
+  name: Master Bedroom
+  control: hidden
+  entities:
+    - light.brian
+    - light.sheena
+    - media_player.chromecast8579
+    #- switch.bedroom_tv
+
+master_bathroom:
+  name: Master Bathroom
+  control: hidden
+  entities:
+    - sensor.ecolink_motion_detector_burglar_6_10
+
+
+family_locations:
+  name: Family Locations
+  control: hidden
+  entities:
+    - device_tracker.briansiphone
+    - device_tracker.sheenasiphone
+    - device_tracker.briansapple_watch
+    - input_select.brian_status
+    - input_select.sheena_status
+
+travel_times:
+  name: Travel Times
+  control: hidden
+  entities:
+    - sensor.brian_home_to_work
+    - sensor.brian_phone_to_home
+    - sensor.sheena_home_to_work
+    - sensor.sheena_phone_to_home
+
+iphone_battery:
+  name: Iphone Batteries
+  control: hidden
+  entities:
+    - sensor.brian_iphone_battery
+    - sensor.sheena_iphone_battery
+
+kitchen:
+  name: Kitchen
+  control: hidden
+  entities:
+    - light.sink
+    
+living_room:
+  control: hidden
+  name: Living Room
+  entities:
+    - light.hue_color_lamp_1
+    - light.hue_color_lamp_2
+    - light.hue_color_lamp_3
+    - climate.unknown_id0190_unknown_type0001_id0001_cooling_1_7_2
+    - sensor.unknown_id0190_unknown_type0001_id0001_temperature_7_1
+    - sensor.unknown_id0190_unknown_type0001_id0001_relative_humidity_7_5
+    - media_player.sony_bravia_tv
+    - media_player.kodi
+
+loft:
+  name: Loft
+  control: hidden
+  entities:
+    - light.loft1
+    - light.loft2
+    - media_player.chromecastloft
+    - switch.loft_tv
+
+hallway:
+  name: Hallway
+  entities:
+    - binary_sensor.hallway_thermostat_online
+    - binary_sensor.hallway_thermostat_fan
+    - binary_sensor.hallway_thermostat_has_leaf
+    - climate.hallway
+    - sensor.hallway_thermostat_target
+    - sensor.hallway_thermostat_temperature
+    - sensor.hallway_thermostat_humidity
+    - sensor.hallway_thermostat_hvac_state
+    - sensor.hallway_thermostat_operation_mode
+
+office:
+  name: Office
+  control: hidden
+  entities:
+    - light.office1
+    - light.office2
+    - light.bloom_office
+
+garage:
+  name: Garage
+  control: hidden
+  entities:
+    - light.garage_left
+    - light.garage_right
+    - cover.garage_door
+    - sensor.garage_door_status
+    - sensor.garage_door_time_in_state
+    - sensor.garage_door_wifi_signal_strength
+    - sensor.garage_door_reflection_rate
+    - sensor.recycling_day
+    - sensor.trash_day
+
+front_door:
+    name: Front Door
+    entities:
+      - sensor.ring_front_door_battery
+      - sensor.ring_front_door_volume
+      - binary_sensor.ring_front_door_ding
+      - binary_sensor.ring_front_door_motion
+
+back_door:
+  name: Back Door
+  entities:
+    - light.back_door
+
+snmp:
+  name: SNMP Monitoring
+  control: hidden
+  entities:
+    - sensor.download_speed_mean
+    - sensor.upload_speed_mean
+    - sensor.ping_time_mean
+    - sensor.wan_traffic_in_mean
+    - sensor.wan_traffic_out_mean

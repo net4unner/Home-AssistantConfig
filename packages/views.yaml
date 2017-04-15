@@ -1,0 +1,137 @@
+################################################################
+## Packages / Views
+################################################################
+
+################################################################
+## Customize
+################################################################
+
+homeassistant:
+  customize:
+    packages.views: &customize
+      homebridge_hidden: true
+      package: 'views'
+
+    group.automation:
+      <<: *customize
+      friendly_name: "All Automations"
+
+    group.family:
+      <<: *customize
+      friendly_name: "Family"
+
+    group.lights:
+      <<: *customize
+      friendly_name: "Light Panel"
+
+    group.home_security:
+      <<: *customize
+      friendly_name: "Home Security"
+
+    group.living_room:
+      <<: *customize
+      friendly_name: "Living Room"
+
+    group.loft:
+      <<: *customize
+      friendly_name: "Loft"
+
+    group.outside:
+      <<: *customize
+      friendly_name: "Outside"
+
+    group.downstairs:
+      <<: *customize
+      friendly_name: "Downstairs"
+
+    group.upstairs:
+      <<: *customize
+      friendly_name: "Upstairs"
+
+    group.weather:
+      <<: *customize
+      friendly_name: "Weather"
+      icon: mdi:weather-partlycloudy
+
+
+################################################
+## Group
+################################################
+
+group:
+  home:
+    view: yes
+    entities:
+      - group.family_locations
+      - group.travel_times
+      - group.iphone_battery
+      - group.living_room
+      - group.hallway
+      - group.front_door
+      - group.snmp
+      - group.trash_recycle
+
+  automations:
+    view: yes
+    entities:
+      - group.all_automations
+
+  family:
+    view: yes
+    entities:
+      - group.family_locations
+      - group.travel_times
+      - group.iphone_battery
+
+  lights:
+    view: yes
+    entities:
+      - group.all_lights
+
+  home_security:
+    view: yes
+    entities:
+      - alarm_control_panel.alarmcom
+      - group.front_door
+      - automation.arm_away
+      - automation.arm_stay
+      - sensor.ring_front_door_volume
+      - lock.assa_abloy_yale_touchscreen_deadbolt_yrd120_locked_3_0
+
+  loft_view:
+    view: yes
+    entities:
+      - group.loft
+
+  outside:
+    view: yes
+    entities:
+      - group.garage
+      - group.front_door
+      - group.back_door
+
+  dowstairs:
+    view: yes
+    entities:
+      - group.living_room
+      - group.kitchen
+      - group.garage
+      - group.front_door
+      - group.back_door
+
+  upstairs:
+    view: yes
+    entities:
+      - group.loft
+      - group.office
+      - group.hallway
+      - group.master_bedroom
+      - group.master_bathroom
+
+  weather:
+    view: yes
+    entities:
+      - group.weather_general
+      - group.weather_darksky
+      - group.weather_wunderground
+      - group.weather_yr
