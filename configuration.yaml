@@ -19,7 +19,7 @@ frontend:
 
 recorder:
   purge_days: 5
-  #db_url: !secret my_db
+  db_url: !secret my_db
 
 
 

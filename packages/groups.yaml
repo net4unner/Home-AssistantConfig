@@ -45,6 +45,9 @@ group:
       - light.hue_color_lamp_1
       - light.hue_color_lamp_2
       - light.hue_color_lamp_3
+      - climate.unknown_id0190_unknown_type0001_id0001_cooling_1_5_2
+      - sensor.unknown_id0190_unknown_type0001_id0001_temperature_4_1
+      - sensor.unknown_id0190_unknown_type0001_id0001_relative_humidity_4_5
   living_room_media_player_card:
     name: Media Players
     entities:
