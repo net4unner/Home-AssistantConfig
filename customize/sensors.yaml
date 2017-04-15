@@ -29,3 +29,23 @@ sensor.recycling_day:
 sensor.trash_day:
   friendly_name: 'Trash Day'
   icon: mdi:delete
+
+climate.unknown_id0190_unknown_type0001_id0001_cooling_1_5_2:
+  friendly_name: 'Living Room Thermostat'
+  icon: mdi:nest-thermostat
+
+lock.assa_abloy_yale_touchscreen_deadbolt_yrd120_locked_3_0:
+  friendly_name: 'Front Door Lock'
+  icon: mdi:lock
+
+sensor.unknown_id0190_unknown_type0001_id0001_temperature_4_1:
+  friendly_name: 'Living Room Temperature'
+  icon: mdi:thermometer
+
+sensor.unknown_id0190_unknown_type0001_id0001_relative_humidity_4_5:
+  friendly_name: 'Living Room Humidity'
+  icon: mdi:thermometer
+
+sensor.ecolink_motion_detector_burglar_6_10:
+  friendly_name: "Bathroom Motion"
+  icon: mdi:walk
