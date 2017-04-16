@@ -1,5 +1,10 @@
 zone.sheena_work:
   friendly_name: 'Sheena Work'
-  
+  track_ios: true
+
 zone.brian_work:
   friendly_name: 'Brian Work'
+  track_ios: true
+
+zone.home:
+  track_ios: true

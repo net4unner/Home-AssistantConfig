@@ -128,7 +128,6 @@ scene: !include_dir_merge_list scene
 script: !include_dir_merge_named script
 zone: !include_dir_merge_list zone
 
-
 mqtt:
   broker: 127.0.0.1
   port: 1883

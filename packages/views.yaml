@@ -16,6 +16,11 @@ homeassistant:
       <<: *customize
       friendly_name: "All Automations"
 
+    group.home:
+      <<: *customize
+      friendly_name: "My Home"
+      icon: mdi:home
+
     group.family:
       <<: *customize
       friendly_name: "Family"

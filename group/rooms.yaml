@@ -22,9 +22,8 @@ family_locations:
   name: Family Locations
   control: hidden
   entities:
-    - device_tracker.briansiphone
-    - device_tracker.sheenasiphone
-    - device_tracker.briansapple_watch
+    - device_tracker.brians_iphone
+    - device_tracker.sheenas_iphone
     - input_select.brian_status
     - input_select.sheena_status
 
@@ -49,7 +48,7 @@ kitchen:
   control: hidden
   entities:
     - light.sink
-    
+
 living_room:
   control: hidden
   name: Living Room
