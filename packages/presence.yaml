@@ -77,9 +77,3 @@ input_boolean:
     name: Away
     icon: mdi:account-off
     initial: off
-  brian:
-    name: Brian
-    initial: off
-  sheena:
-    name: Sheena
-    initial: off
