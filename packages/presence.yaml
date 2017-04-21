@@ -20,14 +20,23 @@ automation:
     - condition: and
       conditions:
         - condition: state
+          entity_id: 'input_boolean.away'
+          state: 'off'
+    - condition: or
+      conditions:
+        - condition: state
           entity_id: 'device_tracker.brians_iphone'
           state: 'not_home'
         - condition: state
           entity_id: 'device_tracker.sheenas_iphone'
           state: 'not_home'
         - condition: state
-          entity_id: 'input_boolean.away'
-          state: 'off'
+          entity_id: 'device_tracker.brians_iphone'
+          state: 'brian_work'
+        - condition: state
+          entity_id: 'device_tracker.sheenas_iphone'
+          state: 'sheena_work'
+
     trigger:
       - platform: state
         entity_id: device_tracker.brians_iphone, device_tracker.sheenas_iphone
