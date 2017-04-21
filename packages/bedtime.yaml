@@ -33,10 +33,10 @@ script:
       entity_id: light.brian
     - service: light.turn_off
       entity_id: light.sheena
-    - service: light.turn_on
-      entity_id: light.shower
+    - service: light.hue_activate_scene
       data:
-        brightness: 40
+        group_name: "Master Bath"
+        scene_name: "Nightlight"
 
 ###### LIVINGROOM/KITCHEN
     - service: light.turn_off
