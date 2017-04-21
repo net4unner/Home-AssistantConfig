@@ -3,18 +3,83 @@
 ############################################
 homeassistant:
   customize:
-    device_tracker.sheenasiphone:
+    device_tracker.sheenas_iphone:
       friendly_name: 'Sheena'
       hidden: False
 
-    device_tracker.briansiphone:
+    device_tracker.brians_iphone:
       friendly_name: 'Brian'
       hidden: False
 
 
+automation:
+################# Away
+  - alias: Set Away Mode on
+    initial_state: 'on'
+    condition:
+    - condition: and
+      conditions:
+        - condition: state
+          entity_id: 'device_tracker.brians_iphone'
+          state: 'not_home'
+        - condition: state
+          entity_id: 'device_tracker.sheenas_iphone'
+          state: 'not_home'
+        - condition: state
+          entity_id: 'input_boolean.away'
+          state: 'off'
+    trigger:
+      - platform: state
+        entity_id: device_tracker.brians_iphone, device_tracker.sheenas_iphone
+        to: 'not_home'
+    action:
+      - service: homeassistant.turn_on
+        entity_id: input_boolean.away
+      - service: script.turn_on
+        entity_id: script.bedtime
+        data:
+          message: "No one is at home currently, away mode is set, and system is armed."
+          title: "Away Mode set"
 
-####### MODES
+################# HOME
+  - alias: Set Away Mode off
+    initial_state: 'on'
+    condition:
+    - condition: state
+      entity_id: 'input_boolean.away'
+      state: 'on'
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: 'device_tracker.brians_iphone'
+          state: 'home'
+        - condition: state
+          entity_id: 'device_tracker.sheenas_iphone'
+          state: 'home'
+    trigger:
+      - platform: state
+        entity_id: device_tracker.brians_iphone, device_tracker.sheenas_iphone
+        to: 'home'
+    action:
+      - service: homeassistant.turn_off
+        entity_id: input_boolean.away
+        data:
+          message: "Alarm has been disarmed, welcome home."
+          title: "Away Mode Turned Off"
+
+###### MODES / PEOPLE
 input_boolean:
+  vacation:
+    name: Vacation
+    icon: mdi:sunglasses
+    initial: off
   away:
     name: Away
     icon: mdi:account-off
+    initial: off
+  brian:
+    name: Brian
+    initial: off
+  sheena:
+    name: Sheena
+    initial: off

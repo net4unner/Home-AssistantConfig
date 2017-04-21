@@ -17,6 +17,46 @@ homeassistant:
       friendly_name: "Bedtime"
       icon: mdi:hotel
 
+    script.bedtime:
+      friendly_name: Bedtime
+      icon: mdi:hotel
+
+######################################################
+## Script
+######################################################
+
+script:
+  bedtime:
+    sequence:
+##### BEDROOM
+    - service: light.turn_off
+      entities:
+        - light.brian
+        - light.sheena
+    - service: light.turn_on
+      entity_id:
+        - light.shower
+      data:
+        brightness: 40 
+
+###### LIVINGROOM/KITCHEN
+    - service: light.turn_off
+      entities:
+        - light.hue_color_lamp_1
+        - light.hue_color_lamp_2
+        - light.hue_color_lamp_3
+        - light.sink
+###### BACKYARD
+    - service: light.turn_off
+      entity_id: light.back_door
+###### OFFICE
+    - service: light.turn_off
+      entities:
+        - light.office1
+        - light.office2
+        - light.computer_strip
+
+
 ######################################################
 ## Automation
 ######################################################

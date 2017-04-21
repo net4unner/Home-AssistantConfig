@@ -54,21 +54,17 @@ automation:
       condition: and
       conditions:
         - condition: state
-          entity_id: group.family
-          state: 'not_home'
+          entity_id: 'input_boolean.away'
+          state: 'on'
     action:
       - service: alarm_control_panel.alarm_arm_away
-      - service: notify.notify
-        data:
-          message: "System has been armed to away"
-          title: "Arm Away"
 
   - alias: disarm_family_home
     trigger:
       - platform: state
-        entity_id: device_tracker.brians_iphone, device_tracker.sheenas_iphone
-        from: 'not_home'
-        to: 'home'
+        entity_id: input_boolean.away
+        from: 'on'
+        to: 'off'
     condition:
       condition: or
       conditions:

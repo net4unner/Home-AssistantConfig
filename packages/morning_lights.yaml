@@ -44,10 +44,7 @@ automation:
     action:
       - service: light.turn_on
         entity_id:
-          - group.master_bedroom
-          - group.living_room
-          - light.garage_left
-          - light.garage_right
+          - group.morning_lights
         data:
           transition: 300
           brightness: 60
