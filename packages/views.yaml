@@ -123,6 +123,7 @@ group:
       - group.garage
       - group.front_door
       - group.back_door
+      - climate.climate.unknown_id0190_unknown_type0001_id0001_cooling_1_7_2
 
   upstairs:
     view: yes
