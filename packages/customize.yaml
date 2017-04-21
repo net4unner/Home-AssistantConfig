@@ -1,0 +1,105 @@
+################################################################
+## Packages / Customize
+################################################################
+
+homeassistant:
+  customize:
+    #Automations
+    group.all_automations:
+      friendly_name: 'All Automations'
+      hidden: False
+
+    #Climate
+    climate.unknown_id0190_unknown_type0001_id0001_cooling_1_7_2:
+      friendly_name: 'Living Room Thermostat'
+      icon: mdi:nest-thermostat
+
+    sensor.unknown_id0190_unknown_type0001_id0001_temperature_7_1:
+      friendly_name: 'Living Room Temperature'
+      icon: mdi:thermometer
+
+    sensor.unknown_id0190_unknown_type0001_id0001_relative_humidity_7_5:
+      friendly_name: 'Living Room Humidity'
+      icon: mdi:thermometer
+
+    #Garage
+    sensor.garage_door:
+      friendly_name: 'Garadget Door'
+      hidden: False
+      icon: mdi:car-connected
+
+    cover.garage_door:
+      friendly_name: "Garage Door"
+      homebridge_cover_type: garage_door
+      icon: mdi:glassdoor
+
+    sensor.garage_door_reflection_rate:
+      friendly_name: 'Reflection Rate'
+      hidden: False
+
+    sensor.garage_door_status:
+      friendly_name: 'State Of The Door'
+      hidden: False
+
+    sensor.garage_door_time_in_state:
+      friendly_name: 'Time In State'
+      hidden: False
+      icon: mdi:timer-sand
+
+    sensor.garage_door_wifi_signal_strength:
+      friendly_name: 'Wifi Strength'
+      hidden: False
+      icon: mdi:wifi
+
+    #Lights
+    group.all_lights:
+      friendly_name: 'All Lights'
+      hidden: False
+
+    #Locks
+    lock.assa_abloy_yale_touchscreen_deadbolt_yrd120_locked_3_0:
+      friendly_name: 'Front Door Lock'
+      icon: mdi:lock
+
+    #Media Players
+    media_player.xbr55x850c:
+      friendly_name: 'Living Room Chromecast'
+      hidden: False
+
+    media_player.chromecast8579:
+      friendly_name: 'Bedroom Chromecast'
+      hidden: False
+
+    #Motion
+    sensor.ecolink_motion_detector_burglar_6_10:
+      friendly_name: "Bathroom Motion"
+      icon: mdi:walk
+
+    #Travel
+    sensor.brian_home_to_work:
+      friendly_name: 'Home to Brian Work'
+      icon: mdi:car
+
+    sensor.brian_phone_to_home:
+      friendly_name: 'Brian Phone to Home'
+      icon: mdi:home-map-marker
+
+    sensor.sheena_home_to_work:
+      friendly_name: 'Home to Sheena Work'
+      icon: mdi:car
+
+    sensor.sheena_phone_to_home:
+      friendly_name: 'Sheena Phone to Home'
+      icon: mdi:home-map-marker
+
+    #Zones
+    zone.sheena_work:
+      friendly_name: 'Sheena Work'
+      track_ios: true
+
+    zone.brian_work:
+      friendly_name: 'Brian Work'
+      track_ios: true
+
+    zone.home:
+      track_ios: true

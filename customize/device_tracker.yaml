@@ -1,7 +1,0 @@
-device_tracker.sheenasiphone:
-  friendly_name: 'Sheena'
-  hidden: False
-  
-device_tracker.briansiphone:
-  friendly_name: 'Brian'
-  hidden: False
