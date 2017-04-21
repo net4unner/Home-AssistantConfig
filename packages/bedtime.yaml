@@ -30,33 +30,25 @@ script:
     sequence:
 ##### BEDROOM
     - service: light.turn_off
-      entities:
-        - light.brian
-        - light.sheena
+      entity_id: light.brian
+    - service: light.turn_off
+      entity_id: light.sheena
     - service: light.turn_on
-      entity_id:
-        - light.shower
+      entity_id: light.shower
       data:
-        brightness: 40 
+        brightness: 40
 
 ###### LIVINGROOM/KITCHEN
     - service: light.turn_off
-      entities:
-        - light.hue_color_lamp_1
-        - light.hue_color_lamp_2
-        - light.hue_color_lamp_3
-        - light.sink
+      entity_id: group.living_room
+    - service: light.turn_off
+      entity_id: light.sink
 ###### BACKYARD
     - service: light.turn_off
       entity_id: light.back_door
 ###### OFFICE
     - service: light.turn_off
-      entities:
-        - light.office1
-        - light.office2
-        - light.computer_strip
-
-
+      entity_id: group.office
 ######################################################
 ## Automation
 ######################################################
