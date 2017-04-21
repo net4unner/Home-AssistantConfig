@@ -1,8 +1,0 @@
-- name: office_bright
-  entities:
-    light.office1:
-      state: on
-      brightness: 255
-    light.office2:
-      state: on
-      brightness: 255

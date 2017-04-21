@@ -1,0 +1,63 @@
+#####################################################
+## Packages / Movies
+#####################################################
+
+#####################################################
+## Customize
+#####################################################
+
+homeassistant:
+  customize:
+    packages.movies: &customize
+      homebridge_hidden: false
+      package: 'movies'
+
+    scene.movies:
+      friendly_name: 'Movies'
+      hidden: False
+
+    scene.movies_off:
+      friendly_name: 'Movies Off'
+      hidden: False
+
+
+scene:
+  - name: movies
+    entities:
+      media_player.sony_bravia_tv:
+        state: on
+        source: HDMI 4
+      light.hue_color_lamp_1:
+        state: on
+        brightness: 100
+        color_name: blue
+      light.hue_color_lamp_2:
+        state: on
+        brightness: 100
+        color_name: blue
+      light.hue_color_lamp_3:
+        state: on
+        brightness: 100
+        color_name: blue
+      light.sink:
+        state: on
+        brightness: 100
+        color_name: blue
+  - name: movies_off
+    entities:
+      light.hue_color_lamp_1:
+        state: on
+        brightness: 100
+        color_name: white
+      light.hue_color_lamp_2:
+        state: on
+        brightness: 100
+        color_name: white
+      light.hue_color_lamp_3:
+        state: on
+        brightness: 100
+        color_name: white
+      light.sink:
+        state: on
+        brightness: 100
+        color_name: white
