@@ -12,23 +12,23 @@ homeassistant:
       homebridge_hidden: true
       package: 'alarmdotcom'
 
-   alarm_control_panel.alarmcom:
-     <<: *customize
-     friendly_name: "Alarm System"
+    alarm_control_panel.alarmcom:
+      <<: *customize
+      friendly_name: "Alarm System"
 
-   group.alarm_system:
-     <<: *customize
-     friendly_name: "Alarm System"
+    group.alarm_system:
+      <<: *customize
+      friendly_name: "Alarm System"
 
-   automation.armed_away:
-     <<: *customize
-     friendly_name: "Arm Away"
-     icon: mdi:security-home
+    automation.armed_away:
+      <<: *customize
+      friendly_name: "Arm Away"
+      icon: mdi:security-home
 
-   automation.disarm_family_home:
-     <<: *customize
-     friendly_name: "Disarm Family Home"
-     icon: mdi:security-home
+    automation.disarm_family_home:
+      <<: *customize
+      friendly_name: "Disarm Family Home"
+      icon: mdi:security-home
 
 ################################################
 ## Group

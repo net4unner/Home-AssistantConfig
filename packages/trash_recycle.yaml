@@ -1,0 +1,42 @@
+################################################################
+## Packages / Waste Pickup
+################################################################
+homeassistant:
+  customize:
+    sensor.recycling_day:
+      friendly_name: 'Recycling Day'
+      icon: mdi:recycle
+
+    sensor.trash_day:
+      friendly_name: 'Trash Day'
+      icon: mdi:delete
+
+###### STATE CARD
+group:
+  garbage_recycling_pickup:
+    name: Garbage & Recycling
+    entities:
+      - sensor.recycling_day
+      - sensor.trash_day        
+
+sensor:
+##### RECYCLING DAY
+  - platform: template
+    sensors:
+      recycling_day:
+        value_template: >
+          {%- if "{{as_timestamp(now())|timestamp_custom('%w', true)|lower}} % 2 == 0" and as_timestamp(now())|timestamp_custom('%A', true)  == 'Tuesday' -%}
+            Today is Recycling Day
+          {%- else -%}
+            {{(2 - as_timestamp(now())|timestamp_custom('%w', true) | int)%14}} Days untill next recycle pickup.
+          {%- endif %}
+#### Garbage DAY
+  - platform: template
+    sensors:
+      trash_day:
+        value_template: >
+          {%- if as_timestamp(now())|timestamp_custom('%A', true)  == 'Thursday' -%}
+            Today is Garbage Day
+          {%- else -%}
+            {{(4 - as_timestamp(now())|timestamp_custom('%w', true) | int)%7}} Days untill next garbage pickup.
+          {%- endif %}

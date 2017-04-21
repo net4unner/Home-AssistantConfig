@@ -1,8 +1,12 @@
 sensor.garage_door:
   friendly_name: 'Garadget Door'
   hidden: False
-  homebridge_cover_type: garage_door
   icon: mdi:car-connected
+
+cover.garage_door:
+  friendly_name: "Garage Door"
+  homebridge_cover_type: garage_door
+  icon: mdi:glassdoor
 
 sensor.garage_door_reflection_rate:
   friendly_name: 'Reflection Rate'
@@ -22,14 +26,6 @@ sensor.garage_door_wifi_signal_strength:
   friendly_name: 'Wifi Strength'
   hidden: False
   icon: mdi:wifi
-
-sensor.recycling_day:
-  friendly_name: 'Recycling Day'
-  icon: mdi:recycle
-
-sensor.trash_day:
-  friendly_name: 'Trash Day'
-  icon: mdi:delete
 
 climate.unknown_id0190_unknown_type0001_id0001_cooling_1_7_2:
   friendly_name: 'Living Room Thermostat'
