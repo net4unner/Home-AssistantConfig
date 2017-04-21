@@ -113,66 +113,66 @@ sensor:
       - last_activity
 
 ############# Batteries ------------------------------
-  - platform: template
-    sensors:
-      brian_iphone_battery:
-        unit_of_measurement: '%'
-        entity_id: device_tracker.briansiphone
-        value_template: "{{ (states.device_tracker.briansiphone.attributes|default).battery|default|int('unknown') }}"
-        icon_template: >-
-          {% set battery_state = states('sensor.brian_iphone_battery_state')|lower %}
-          {% set battery_level = states('sensor.brian_iphone_battery')|int('unknown') %}
-          {% set battery_round = (battery_level|int / 10)|int * 10 %}
-          {% if battery_level == 'unknown' %}
-            mdi:battery-unknown
-          {% elif battery_state == 'charging' %}
-            {% if battery_round < 20 %}
-              {% set battery_round = 20 %}
-            {% elif battery_round == 50 %}
-              {% set battery_round = 60 %}
-            {% elif battery_round == 70 %}
-              {% set battery_round = 80 %}
-            {% endif %}
-            mdi:battery-charging-{{ battery_round }}
-          {% else %}
-            {% if battery_round >= 100 %}
-              mdi:battery
-            {% elif battery_round > 0 %}
-              mdi:battery-{{ battery_round }}
-            {% else %}
-              mdi:battery-alert
-            {% endif %}
-          {% endif %}
-  - platform: template
-    sensors:
-      sheena_iphone_battery:
-        unit_of_measurement: '%'
-        entity_id: device_tracker.sheenasiphone
-        value_template: "{{ (states.device_tracker.sheenasiphone.attributes|default).battery|default|int('unknown') }}"
-        icon_template: >-
-          {% set battery_state = states('sensor.sheena_iphone_battery_state')|lower %}
-          {% set battery_level = states('sensor.sheena_iphone_battery')|int('unknown') %}
-          {% set battery_round = (battery_level|int / 10)|int * 10 %}
-          {% if battery_level == 'unknown' %}
-            mdi:battery-unknown
-          {% elif battery_state == 'charging' %}
-            {% if battery_round < 20 %}
-              {% set battery_round = 20 %}
-            {% elif battery_round == 50 %}
-              {% set battery_round = 60 %}
-            {% elif battery_round == 70 %}
-              {% set battery_round = 80 %}
-            {% endif %}
-            mdi:battery-charging-{{ battery_round }}
-          {% else %}
-            {% if battery_round >= 100 %}
-              mdi:battery
-            {% elif battery_round > 0 %}
-              mdi:battery-{{ battery_round }}
-            {% else %}
-              mdi:battery-alert
-            {% endif %}
-          {% endif %}
+  # - platform: template
+  #   sensors:
+  #     brian_iphone_battery:
+  #       unit_of_measurement: '%'
+  #       entity_id: device_tracker.briansiphone
+  #       value_template: "{{ (states.device_tracker.briansiphone.attributes|default).battery|default|int('unknown') }}"
+  #       icon_template: >-
+  #         {% set battery_state = states('sensor.brian_iphone_battery_state')|lower %}
+  #         {% set battery_level = states('sensor.brian_iphone_battery')|int('unknown') %}
+  #         {% set battery_round = (battery_level|int / 10)|int * 10 %}
+  #         {% if battery_level == 'unknown' %}
+  #           mdi:battery-unknown
+  #         {% elif battery_state == 'charging' %}
+  #           {% if battery_round < 20 %}
+  #             {% set battery_round = 20 %}
+  #           {% elif battery_round == 50 %}
+  #             {% set battery_round = 60 %}
+  #           {% elif battery_round == 70 %}
+  #             {% set battery_round = 80 %}
+  #           {% endif %}
+  #           mdi:battery-charging-{{ battery_round }}
+  #         {% else %}
+  #           {% if battery_round >= 100 %}
+  #             mdi:battery
+  #           {% elif battery_round > 0 %}
+  #             mdi:battery-{{ battery_round }}
+  #           {% else %}
+  #             mdi:battery-alert
+  #           {% endif %}
+  #         {% endif %}
+  # - platform: template
+  #   sensors:
+  #     sheena_iphone_battery:
+  #       unit_of_measurement: '%'
+  #       entity_id: device_tracker.sheenasiphone
+  #       value_template: "{{ (states.device_tracker.sheenasiphone.attributes|default).battery|default|int('unknown') }}"
+  #       icon_template: >-
+  #         {% set battery_state = states('sensor.sheena_iphone_battery_state')|lower %}
+  #         {% set battery_level = states('sensor.sheena_iphone_battery')|int('unknown') %}
+  #         {% set battery_round = (battery_level|int / 10)|int * 10 %}
+  #         {% if battery_level == 'unknown' %}
+  #           mdi:battery-unknown
+  #         {% elif battery_state == 'charging' %}
+  #           {% if battery_round < 20 %}
+  #             {% set battery_round = 20 %}
+  #           {% elif battery_round == 50 %}
+  #             {% set battery_round = 60 %}
+  #           {% elif battery_round == 70 %}
+  #             {% set battery_round = 80 %}
+  #           {% endif %}
+  #           mdi:battery-charging-{{ battery_round }}
+  #         {% else %}
+  #           {% if battery_round >= 100 %}
+  #             mdi:battery
+  #           {% elif battery_round > 0 %}
+  #             mdi:battery-{{ battery_round }}
+  #           {% else %}
+  #             mdi:battery-alert
+  #           {% endif %}
+  #         {% endif %}
 ############## GOOGLE Travel Time
   - platform: google_travel_time
     name: Brian Phone To Home

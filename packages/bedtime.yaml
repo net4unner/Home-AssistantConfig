@@ -1,0 +1,62 @@
+#####################################################
+## Packages / Bedtime
+#####################################################
+
+#####################################################
+## Customize
+#####################################################
+
+homeassistant:
+  customize:
+    packages.bedtime: &customize
+      homebridge_hidden: false
+      package: 'bedtime'
+
+    automation.bedtime:
+      <<: *customize
+      friendly_name: "Bedtime"
+      icon: mdi:hotel
+
+######################################################
+## Automation
+######################################################
+
+automation:
+  - alias: "Bedtime Weekday"
+    trigger:
+      - platform: time
+        after: "22:00:00"
+    condition:
+      condition: and
+      conditions:
+        - condition: time
+          weekday:
+            - mon
+            - tue
+            - wed
+            - thu
+            - sun
+        - condition: time
+          before: "22:30:00"
+    action:
+      - service: light.turn_off
+        entity_id: group.all_lights
+      - service: alarm_control_panel.alarm_arm_home
+
+  - alias: "Bedtime Weekend"
+    trigger:
+      - platform: time
+        after: "23:00:00"
+    condition:
+      condition: and
+      conditions:
+        - condition: time
+          weekday:
+            - fri
+            - sat
+        - condition: time
+          before: "23:30:00"
+    action:
+      - service: light.turn_off
+        entity_id: group.all_lights
+      - service: alarm_control_panel.alarm_arm_home
