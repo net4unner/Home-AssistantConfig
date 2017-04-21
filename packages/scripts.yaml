@@ -1,0 +1,48 @@
+##############################################################
+## Packages / Scripts
+##############################################################
+
+homeassistant:
+  customize:
+    #Scripts
+    script.ifttt_notify:
+      friendly_name: Notify via IFTTT
+
+    script.voice_notify:
+      friendly_name: Notify via Polly TTS
+      icon: mdi:speaker
+
+script:
+  ifttt_notify:
+    sequence:
+      - service: ifttt.trigger
+        data_template: {"event":"ifttt_notify", "value1":"{{ value1 }}", "value2":"{{ value2 }}", "value3":"{{ value3 }}"}
+###################################################
+## Voice Notify
+####################################################
+  voice_notify:
+    sequence:
+      - condition: template
+        value_template: >
+          {% if value1 | trim == "" %}
+            false
+          {% else %}
+            true
+          {% endif %}
+      - condition: state
+        entity_id: group.family
+        state: 'home'
+      - service: tts.amazon_polly_say
+        data_template:
+          entity_id: media_player.chromecastaudiokitchen, media_player.chromecastaudiobedroom
+          message: >
+            <speak>
+            {% if now().strftime("%H")|int < 12 %}
+              Good morning.
+            {% elif now().strftime("%H")|int < 18 %}
+              Good afternoon.
+            {% else %}
+              Good evening.<break time='1s'/>
+            {% endif %}
+            <break time='0.5s'/>{{ value1 }}<break time='0.5s'/>Thank you.<break time='0.5s'/></speak>
+          cache: true
