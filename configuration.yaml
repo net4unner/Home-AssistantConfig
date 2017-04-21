@@ -19,7 +19,6 @@ frontend:
 
 recorder:
   purge_days: 5
-  db_url: !secret my_db
 
 
 
@@ -81,8 +80,10 @@ wemo:
 
 # Text to speech
 tts:
-  - platform: google
-
+  #- platform: google
+  - platform: amazon_polly
+    aws_access_key_id: !secret polly_access
+    aws_secret_access_key: !secret polly_secret
 sun:
 ifttt:
   key: !secret iftt_api
@@ -91,6 +92,8 @@ notify:
   - platform: pushover
     api_key: !secret pushover_api_key
     user_key: !secret pushover_user_key
+
+ios:
 
 alarm_control_panel:
   platform: alarmdotcom
@@ -121,8 +124,6 @@ zwave:
 automation: !include_dir_merge_list automation
 device_tracker: !include device_tracker.yaml
 group: !include_dir_merge_named group
-input_select: !include_dir_merge_named input_select
-input_slider: !include misc/input_slider.yaml
 light: !include_dir_merge_list light
 scene: !include_dir_merge_list scene
 script: !include_dir_merge_named script
